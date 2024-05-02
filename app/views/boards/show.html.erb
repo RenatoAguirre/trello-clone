@@ -1,0 +1,13 @@
+<div class="container">
+  <h1><%= @board.name %></h1>
+  <p><%= @board.description %></p>
+  <h3>States:</h3>
+  <% @board.states.each do |state| %>
+    <div>
+      <h4><%= state.name %></h4>
+      <% state.tasks.each do |task| %>
+        <p><%= task.title %>: <%= task.description %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

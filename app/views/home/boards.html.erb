@@ -13,7 +13,10 @@
         <tr>
           <td><%= board.name %></td>
           <td><%= board.description %></td>
-          <td><a href="#" class="btn btn-info">View</a></td>
+          <%= link_to board_path(@board), class: "btn btn-primary" do %>
+            Go to Board
+          <% end %>
+          <td><a class="btn btn-info"><%= link_to 'Go to Board', board_path(@board) %>View</a></td>
         </tr>
       <% end %>
     </tbody>

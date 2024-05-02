@@ -1,6 +1,7 @@
 class CreateBoards < ActiveRecord::Migration[7.1]
   def change
     create_table :boards do |t|
+      t.id :id
       t.string :name
       t.text :description
       t.references :user, null: false, foreign_key: true

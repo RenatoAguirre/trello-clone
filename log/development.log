@@ -687,3 +687,890 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 85ms (Views: 65.6ms | ActiveRecord: 15.7ms | Allocations: 39131)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTask Delete All (1.0ms)[0m  [1m[31mDELETE FROM "tasks"[0m
+  [1m[36mState Delete All (0.5ms)[0m  [1m[31mDELETE FROM "states"[0m
+  [1m[36mBoard Delete All (0.4ms)[0m  [1m[31mDELETE FROM "boards"[0m
+  [1m[36mUser Delete All (0.5ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Alice"], ["email", "alice@example.com"], ["created_at", "2024-05-02 21:45:13.142130"], ["updated_at", "2024-05-02 21:45:13.142130"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Bob"], ["email", "bob@example.com"], ["created_at", "2024-05-02 21:45:13.150490"], ["updated_at", "2024-05-02 21:45:13.150490"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Carol"], ["email", "carol@example.com"], ["created_at", "2024-05-02 21:45:13.155349"], ["updated_at", "2024-05-02 21:45:13.155349"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (3.9ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 1"], ["description", "Description for Project 1"], ["user_id", 1], ["created_at", "2024-05-02 21:45:13.230146"], ["updated_at", "2024-05-02 21:45:13.230146"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 1], ["created_at", "2024-05-02 21:45:13.248159"], ["updated_at", "2024-05-02 21:45:13.248159"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.5ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 1], ["created_at", "2024-05-02 21:45:13.274027"], ["updated_at", "2024-05-02 21:45:13.274027"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.6ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 1], ["created_at", "2024-05-02 21:45:13.284858"], ["updated_at", "2024-05-02 21:45:13.284858"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.8ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 1], ["created_at", "2024-05-02 21:45:13.295979"], ["updated_at", "2024-05-02 21:45:13.295979"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.2ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 2"], ["description", "Description for Project 2"], ["user_id", 1], ["created_at", "2024-05-02 21:45:13.306417"], ["updated_at", "2024-05-02 21:45:13.306417"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 2], ["created_at", "2024-05-02 21:45:13.313542"], ["updated_at", "2024-05-02 21:45:13.313542"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 2], ["created_at", "2024-05-02 21:45:13.321404"], ["updated_at", "2024-05-02 21:45:13.321404"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.9ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 2], ["created_at", "2024-05-02 21:45:13.329831"], ["updated_at", "2024-05-02 21:45:13.329831"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.4ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 2], ["created_at", "2024-05-02 21:45:13.337577"], ["updated_at", "2024-05-02 21:45:13.337577"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.0ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 3"], ["description", "Description for Project 3"], ["user_id", 1], ["created_at", "2024-05-02 21:45:13.349721"], ["updated_at", "2024-05-02 21:45:13.349721"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.0ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 3], ["created_at", "2024-05-02 21:45:13.356622"], ["updated_at", "2024-05-02 21:45:13.356622"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 3], ["created_at", "2024-05-02 21:45:13.366062"], ["updated_at", "2024-05-02 21:45:13.366062"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 3], ["created_at", "2024-05-02 21:45:13.375328"], ["updated_at", "2024-05-02 21:45:13.375328"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.6ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 3], ["created_at", "2024-05-02 21:45:13.384980"], ["updated_at", "2024-05-02 21:45:13.384980"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.4ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 1"], ["description", "Description for Project 1"], ["user_id", 2], ["created_at", "2024-05-02 21:45:13.393773"], ["updated_at", "2024-05-02 21:45:13.393773"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.8ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 4], ["created_at", "2024-05-02 21:45:13.400026"], ["updated_at", "2024-05-02 21:45:13.400026"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (4.3ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 4], ["created_at", "2024-05-02 21:45:13.409358"], ["updated_at", "2024-05-02 21:45:13.409358"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (3.3ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 4], ["created_at", "2024-05-02 21:45:13.422721"], ["updated_at", "2024-05-02 21:45:13.422721"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (3.3ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 4], ["created_at", "2024-05-02 21:45:13.436220"], ["updated_at", "2024-05-02 21:45:13.436220"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (1.9ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 2"], ["description", "Description for Project 2"], ["user_id", 2], ["created_at", "2024-05-02 21:45:13.448464"], ["updated_at", "2024-05-02 21:45:13.448464"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (5.0ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 5], ["created_at", "2024-05-02 21:45:13.455341"], ["updated_at", "2024-05-02 21:45:13.455341"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.0ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 5], ["created_at", "2024-05-02 21:45:13.469488"], ["updated_at", "2024-05-02 21:45:13.469488"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.8ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 5], ["created_at", "2024-05-02 21:45:13.482581"], ["updated_at", "2024-05-02 21:45:13.482581"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.9ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 5], ["created_at", "2024-05-02 21:45:13.491156"], ["updated_at", "2024-05-02 21:45:13.491156"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.0ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 3"], ["description", "Description for Project 3"], ["user_id", 2], ["created_at", "2024-05-02 21:45:13.501028"], ["updated_at", "2024-05-02 21:45:13.501028"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.3ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 6], ["created_at", "2024-05-02 21:45:13.507076"], ["updated_at", "2024-05-02 21:45:13.507076"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.4ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 6], ["created_at", "2024-05-02 21:45:13.516100"], ["updated_at", "2024-05-02 21:45:13.516100"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.5ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 6], ["created_at", "2024-05-02 21:45:13.523165"], ["updated_at", "2024-05-02 21:45:13.523165"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.8ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 6], ["created_at", "2024-05-02 21:45:13.531669"], ["updated_at", "2024-05-02 21:45:13.531669"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.1ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 1"], ["description", "Description for Project 1"], ["user_id", 3], ["created_at", "2024-05-02 21:45:13.539621"], ["updated_at", "2024-05-02 21:45:13.539621"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.3ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 7], ["created_at", "2024-05-02 21:45:13.546492"], ["updated_at", "2024-05-02 21:45:13.546492"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.3ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 7], ["created_at", "2024-05-02 21:45:13.553923"], ["updated_at", "2024-05-02 21:45:13.553923"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.6ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 7], ["created_at", "2024-05-02 21:45:13.565101"], ["updated_at", "2024-05-02 21:45:13.565101"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.0ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 7], ["created_at", "2024-05-02 21:45:13.573514"], ["updated_at", "2024-05-02 21:45:13.573514"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (1.2ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 2"], ["description", "Description for Project 2"], ["user_id", 3], ["created_at", "2024-05-02 21:45:13.582080"], ["updated_at", "2024-05-02 21:45:13.582080"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 8], ["created_at", "2024-05-02 21:45:13.587311"], ["updated_at", "2024-05-02 21:45:13.587311"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.8ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 8], ["created_at", "2024-05-02 21:45:13.595525"], ["updated_at", "2024-05-02 21:45:13.595525"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 8], ["created_at", "2024-05-02 21:45:13.603069"], ["updated_at", "2024-05-02 21:45:13.603069"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.4ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 8], ["created_at", "2024-05-02 21:45:13.612012"], ["updated_at", "2024-05-02 21:45:13.612012"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.2ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 3"], ["description", "Description for Project 3"], ["user_id", 3], ["created_at", "2024-05-02 21:45:13.620470"], ["updated_at", "2024-05-02 21:45:13.620470"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.9ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 9], ["created_at", "2024-05-02 21:45:13.627110"], ["updated_at", "2024-05-02 21:45:13.627110"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.9ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 9], ["created_at", "2024-05-02 21:45:13.635499"], ["updated_at", "2024-05-02 21:45:13.635499"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 9], ["created_at", "2024-05-02 21:45:13.685944"], ["updated_at", "2024-05-02 21:45:13.685944"]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 9], ["created_at", "2024-05-02 21:45:13.696937"], ["updated_at", "2024-05-02 21:45:13.696937"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2024-05-02 17:45:27 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (15.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mBoard Load (1.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:6
+  [1m[36mState Load (0.9ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 9], ["board_id", 8], ["board_id", 7]]
+  ↳ app/views/home/index.html.erb:6
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 33], ["state_id", 34], ["state_id", 35], ["state_id", 36], ["state_id", 29], ["state_id", 30], ["state_id", 31], ["state_id", 32], ["state_id", 25], ["state_id", 26], ["state_id", 27], ["state_id", 28]]
+  ↳ app/views/home/index.html.erb:6
+  Rendered home/index.html.erb within layouts/application (Duration: 79.0ms | Allocations: 28413)
+  Rendered layout layouts/application.html.erb (Duration: 558.7ms | Allocations: 135313)
+Completed 200 OK in 597ms (Views: 546.6ms | ActiveRecord: 19.6ms | Allocations: 150166)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 17:45:39 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mBoard Load (1.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:6
+  [1m[36mState Load (1.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 9], ["board_id", 8], ["board_id", 7]]
+  ↳ app/views/home/index.html.erb:6
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 33], ["state_id", 34], ["state_id", 35], ["state_id", 36], ["state_id", 29], ["state_id", 30], ["state_id", 31], ["state_id", 32], ["state_id", 25], ["state_id", 26], ["state_id", 27], ["state_id", 28]]
+  ↳ app/views/home/index.html.erb:6
+  Rendered home/index.html.erb within layouts/application (Duration: 22.7ms | Allocations: 3388)
+  Rendered layout layouts/application.html.erb (Duration: 31.5ms | Allocations: 5835)
+Completed 200 OK in 35ms (Views: 28.1ms | ActiveRecord: 4.8ms | Allocations: 6112)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4048513477308429360)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to AddIdToBoards (20240502215210)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.4ms)[0m  [1m[35mALTER TABLE "boards" ADD "id" bigserial primary key[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4048513477308429360)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4048513477308429360)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to AddIdToBoards (20240502215210)
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (2.4ms)[0m  [1m[35mALTER TABLE "boards" ALTER COLUMN "id" TYPE bigserial primary key, ALTER COLUMN "id" SET NOT NULL[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4048513477308429360)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4048513477308429360)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4048513477308429360)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTask Delete All (0.7ms)[0m  [1m[31mDELETE FROM "tasks"[0m
+  [1m[36mState Delete All (4.1ms)[0m  [1m[31mDELETE FROM "states"[0m
+  [1m[36mBoard Delete All (3.8ms)[0m  [1m[31mDELETE FROM "boards"[0m
+  [1m[36mUser Delete All (1.9ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Alice"], ["email", "alice@example.com"], ["created_at", "2024-05-02 21:55:02.717132"], ["updated_at", "2024-05-02 21:55:02.717132"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (2.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Bob"], ["email", "bob@example.com"], ["created_at", "2024-05-02 21:55:02.723963"], ["updated_at", "2024-05-02 21:55:02.723963"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Carol"], ["email", "carol@example.com"], ["created_at", "2024-05-02 21:55:02.729992"], ["updated_at", "2024-05-02 21:55:02.729992"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (3.3ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 1"], ["description", "Description for Project 1"], ["user_id", 4], ["created_at", "2024-05-02 21:55:02.753749"], ["updated_at", "2024-05-02 21:55:02.753749"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (3.5ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 10], ["created_at", "2024-05-02 21:55:02.769524"], ["updated_at", "2024-05-02 21:55:02.769524"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.3ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 10], ["created_at", "2024-05-02 21:55:02.840387"], ["updated_at", "2024-05-02 21:55:02.840387"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.9ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 10], ["created_at", "2024-05-02 21:55:02.851265"], ["updated_at", "2024-05-02 21:55:02.851265"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.1ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 10], ["created_at", "2024-05-02 21:55:02.861342"], ["updated_at", "2024-05-02 21:55:02.861342"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.4ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 2"], ["description", "Description for Project 2"], ["user_id", 4], ["created_at", "2024-05-02 21:55:02.870831"], ["updated_at", "2024-05-02 21:55:02.870831"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (3.0ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 11], ["created_at", "2024-05-02 21:55:02.878775"], ["updated_at", "2024-05-02 21:55:02.878775"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 11], ["created_at", "2024-05-02 21:55:02.888880"], ["updated_at", "2024-05-02 21:55:02.888880"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 11], ["created_at", "2024-05-02 21:55:02.899430"], ["updated_at", "2024-05-02 21:55:02.899430"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.9ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 11], ["created_at", "2024-05-02 21:55:02.910241"], ["updated_at", "2024-05-02 21:55:02.910241"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.1ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 3"], ["description", "Description for Project 3"], ["user_id", 4], ["created_at", "2024-05-02 21:55:02.920700"], ["updated_at", "2024-05-02 21:55:02.920700"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.6ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 12], ["created_at", "2024-05-02 21:55:02.927606"], ["updated_at", "2024-05-02 21:55:02.927606"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.0ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 12], ["created_at", "2024-05-02 21:55:02.935215"], ["updated_at", "2024-05-02 21:55:02.935215"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.6ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 12], ["created_at", "2024-05-02 21:55:02.949269"], ["updated_at", "2024-05-02 21:55:02.949269"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.9ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 12], ["created_at", "2024-05-02 21:55:02.958868"], ["updated_at", "2024-05-02 21:55:02.958868"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (1.8ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 1"], ["description", "Description for Project 1"], ["user_id", 5], ["created_at", "2024-05-02 21:55:02.968047"], ["updated_at", "2024-05-02 21:55:02.968047"]]
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 13], ["created_at", "2024-05-02 21:55:02.974277"], ["updated_at", "2024-05-02 21:55:02.974277"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.5ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 13], ["created_at", "2024-05-02 21:55:02.986233"], ["updated_at", "2024-05-02 21:55:02.986233"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.2ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 13], ["created_at", "2024-05-02 21:55:02.999688"], ["updated_at", "2024-05-02 21:55:02.999688"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.6ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 13], ["created_at", "2024-05-02 21:55:03.008929"], ["updated_at", "2024-05-02 21:55:03.008929"]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.1ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 2"], ["description", "Description for Project 2"], ["user_id", 5], ["created_at", "2024-05-02 21:55:03.019566"], ["updated_at", "2024-05-02 21:55:03.019566"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.9ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 14], ["created_at", "2024-05-02 21:55:03.027568"], ["updated_at", "2024-05-02 21:55:03.027568"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (3.0ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 14], ["created_at", "2024-05-02 21:55:03.036696"], ["updated_at", "2024-05-02 21:55:03.036696"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.8ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 14], ["created_at", "2024-05-02 21:55:03.050357"], ["updated_at", "2024-05-02 21:55:03.050357"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.5ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 14], ["created_at", "2024-05-02 21:55:03.061355"], ["updated_at", "2024-05-02 21:55:03.061355"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.6ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 3"], ["description", "Description for Project 3"], ["user_id", 5], ["created_at", "2024-05-02 21:55:03.074037"], ["updated_at", "2024-05-02 21:55:03.074037"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.4ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 15], ["created_at", "2024-05-02 21:55:03.082112"], ["updated_at", "2024-05-02 21:55:03.082112"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.3ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 15], ["created_at", "2024-05-02 21:55:03.092067"], ["updated_at", "2024-05-02 21:55:03.092067"]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.5ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 15], ["created_at", "2024-05-02 21:55:03.103712"], ["updated_at", "2024-05-02 21:55:03.103712"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.4ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 15], ["created_at", "2024-05-02 21:55:03.110623"], ["updated_at", "2024-05-02 21:55:03.110623"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (1.6ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 1"], ["description", "Description for Project 1"], ["user_id", 6], ["created_at", "2024-05-02 21:55:03.118507"], ["updated_at", "2024-05-02 21:55:03.118507"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.5ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 16], ["created_at", "2024-05-02 21:55:03.123364"], ["updated_at", "2024-05-02 21:55:03.123364"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.9ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 16], ["created_at", "2024-05-02 21:55:03.130173"], ["updated_at", "2024-05-02 21:55:03.130173"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.4ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 16], ["created_at", "2024-05-02 21:55:03.138425"], ["updated_at", "2024-05-02 21:55:03.138425"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 16], ["created_at", "2024-05-02 21:55:03.145575"], ["updated_at", "2024-05-02 21:55:03.145575"]]
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (2.7ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 2"], ["description", "Description for Project 2"], ["user_id", 6], ["created_at", "2024-05-02 21:55:03.157313"], ["updated_at", "2024-05-02 21:55:03.157313"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.0ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 17], ["created_at", "2024-05-02 21:55:03.163688"], ["updated_at", "2024-05-02 21:55:03.163688"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.1ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 17], ["created_at", "2024-05-02 21:55:03.176299"], ["updated_at", "2024-05-02 21:55:03.176299"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.1ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 17], ["created_at", "2024-05-02 21:55:03.185224"], ["updated_at", "2024-05-02 21:55:03.185224"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.8ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 17], ["created_at", "2024-05-02 21:55:03.193571"], ["updated_at", "2024-05-02 21:55:03.193571"]]
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mBoard Create (1.8ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "Project 3"], ["description", "Description for Project 3"], ["user_id", 6], ["created_at", "2024-05-02 21:55:03.202449"], ["updated_at", "2024-05-02 21:55:03.202449"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.5ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 18], ["created_at", "2024-05-02 21:55:03.207816"], ["updated_at", "2024-05-02 21:55:03.207816"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.7ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 18], ["created_at", "2024-05-02 21:55:03.216458"], ["updated_at", "2024-05-02 21:55:03.216458"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (2.0ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Review"], ["board_id", 18], ["created_at", "2024-05-02 21:55:03.224412"], ["updated_at", "2024-05-02 21:55:03.224412"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mState Create (1.6ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Completed"], ["board_id", 18], ["created_at", "2024-05-02 21:55:03.233112"], ["updated_at", "2024-05-02 21:55:03.233112"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for 127.0.0.1 at 2024-05-02 17:56:40 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:6
+  [1m[36mState Load (0.7ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 18], ["board_id", 17], ["board_id", 16]]
+  ↳ app/views/home/index.html.erb:6
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 69], ["state_id", 70], ["state_id", 71], ["state_id", 72], ["state_id", 65], ["state_id", 66], ["state_id", 67], ["state_id", 68], ["state_id", 61], ["state_id", 62], ["state_id", 63], ["state_id", 64]]
+  ↳ app/views/home/index.html.erb:6
+  Rendered home/index.html.erb within layouts/application (Duration: 67.5ms | Allocations: 25645)
+  Rendered layout layouts/application.html.erb (Duration: 194.0ms | Allocations: 48454)
+Completed 200 OK in 239ms (Views: 183.7ms | ActiveRecord: 17.6ms | Allocations: 63308)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 17:57:56 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:4
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mState Load (1.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 18], ["board_id", 17], ["board_id", 16]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 69], ["state_id", 70], ["state_id", 71], ["state_id", 72], ["state_id", 65], ["state_id", 66], ["state_id", 67], ["state_id", 68], ["state_id", 61], ["state_id", 62], ["state_id", 63], ["state_id", 64]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 73.0ms | Allocations: 27617)
+  Rendered layout layouts/application.html.erb (Duration: 74.1ms | Allocations: 27743)
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 18.7ms | Allocations: 42545)
+
+
+  
+ActionView::Template::Error (undefined method `board_path' for #<ActionView::Base:0x0000000000b1a8>):
+     8:             <div class="card-body">
+     9:               <h5 class="card-title"><%= board.name %></h5>
+    10:               <p class="card-text"><%= board.description %></p>
+    11:               <a href="#" class="btn btn-primary"> <%= link_to 'Go to Board', board_path(@board) %>View Board</a>
+    12:             </div>
+    13:           </div>
+    14:         </div>
+  
+app/views/home/index.html.erb:11
+app/views/home/index.html.erb:5
+Started GET "/" for 127.0.0.1 at 2024-05-02 17:58:17 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:4
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mState Load (0.5ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 18], ["board_id", 17], ["board_id", 16]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 69], ["state_id", 70], ["state_id", 71], ["state_id", 72], ["state_id", 65], ["state_id", 66], ["state_id", 67], ["state_id", 68], ["state_id", 61], ["state_id", 62], ["state_id", 63], ["state_id", 64]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 35.3ms | Allocations: 15136)
+  Rendered layout layouts/application.html.erb (Duration: 36.0ms | Allocations: 15228)
+Completed 500 Internal Server Error in 44ms (ActiveRecord: 10.1ms | Allocations: 17789)
+
+
+  
+ActionView::Template::Error (undefined method `board_path' for #<ActionView::Base:0x0000000000ebf0>):
+     8:             <div class="card-body">
+     9:               <h5 class="card-title"><%= board.name %></h5>
+    10:               <p class="card-text"><%= board.description %></p>
+    11:               <a href="#" class="btn btn-primary"> <%= link_to 'Go to Board', board_path(board) %>View Board</a>
+    12:             </div>
+    13:           </div>
+    14:         </div>
+  
+app/views/home/index.html.erb:11
+app/views/home/index.html.erb:5
+Started GET "/" for 127.0.0.1 at 2024-05-02 17:58:24 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (0.7ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:4
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mState Load (0.5ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 18], ["board_id", 17], ["board_id", 16]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mTask Load (0.9ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 69], ["state_id", 70], ["state_id", 71], ["state_id", 72], ["state_id", 65], ["state_id", 66], ["state_id", 67], ["state_id", 68], ["state_id", 61], ["state_id", 62], ["state_id", 63], ["state_id", 64]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 86.9ms | Allocations: 26871)
+  Rendered layout layouts/application.html.erb (Duration: 87.6ms | Allocations: 26997)
+Completed 500 Internal Server Error in 130ms (ActiveRecord: 17.9ms | Allocations: 41798)
+
+
+  
+ActionView::Template::Error (undefined method `board_path' for #<ActionView::Base:0x0000000000b1a8>):
+     8:             <div class="card-body">
+     9:               <h5 class="card-title"><%= board.name %></h5>
+    10:               <p class="card-text"><%= board.description %></p>
+    11:               <a href="#" class="btn btn-primary"> <%= link_to 'Go to Board', board_path(board) %>View Board</a>
+    12:             </div>
+    13:           </div>
+    14:         </div>
+  
+app/views/home/index.html.erb:11
+app/views/home/index.html.erb:5
+Started GET "/" for 127.0.0.1 at 2024-05-02 18:00:08 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:4
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mState Load (0.6ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 18], ["board_id", 17], ["board_id", 16]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 69], ["state_id", 70], ["state_id", 71], ["state_id", 72], ["state_id", 65], ["state_id", 66], ["state_id", 67], ["state_id", 68], ["state_id", 61], ["state_id", 62], ["state_id", 63], ["state_id", 64]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 49.1ms | Allocations: 15077)
+  Rendered layout layouts/application.html.erb (Duration: 49.6ms | Allocations: 15169)
+Completed 500 Internal Server Error in 61ms (ActiveRecord: 12.6ms | Allocations: 17731)
+
+
+  
+ActionView::Template::Error (undefined method `board_path' for #<ActionView::Base:0x0000000000ebf0>):
+     8:             <div class="card-body">
+     9:               <h5 class="card-title"><%= board.name %></h5>
+    10:               <p class="card-text"><%= board.description %></p>
+    11:               <a href="#" class="btn btn-primary"> <%= link_to 'Go to Board', board_path(board) %>View Board</a>
+    12:             </div>
+    13:           </div>
+    14:         </div>
+  
+app/views/home/index.html.erb:11
+app/views/home/index.html.erb:5
+Started GET "/" for 127.0.0.1 at 2024-05-02 18:02:00 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:4
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mState Load (0.3ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 18], ["board_id", 17], ["board_id", 16]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 69], ["state_id", 70], ["state_id", 71], ["state_id", 72], ["state_id", 65], ["state_id", 66], ["state_id", 67], ["state_id", 68], ["state_id", 61], ["state_id", 62], ["state_id", 63], ["state_id", 64]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 55.6ms | Allocations: 15074)
+  Rendered layout layouts/application.html.erb (Duration: 56.1ms | Allocations: 15166)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 13.9ms | Allocations: 17726)
+
+
+  
+ActionView::Template::Error (undefined method `board_path' for #<ActionView::Base:0x00000000012598>):
+     8:             <div class="card-body">
+     9:               <h5 class="card-title"><%= board.name %></h5>
+    10:               <p class="card-text"><%= board.description %></p>
+    11:               <a href="<%= board_path(board) %>" class="btn btn-primary">View Board</a>
+    12:             </div>
+    13:           </div>
+    14:         </div>
+  
+app/views/home/index.html.erb:11
+app/views/home/index.html.erb:5
+Started GET "/" for 127.0.0.1 at 2024-05-02 18:03:23 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:4
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mState Load (0.4ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 18], ["board_id", 17], ["board_id", 16]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 69], ["state_id", 70], ["state_id", 71], ["state_id", 72], ["state_id", 65], ["state_id", 66], ["state_id", 67], ["state_id", 68], ["state_id", 61], ["state_id", 62], ["state_id", 63], ["state_id", 64]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 47.5ms | Allocations: 15070)
+  Rendered layout layouts/application.html.erb (Duration: 48.1ms | Allocations: 15162)
+Completed 500 Internal Server Error in 59ms (ActiveRecord: 10.6ms | Allocations: 17723)
+
+
+  
+ActionView::Template::Error (undefined method `board_path' for #<ActionView::Base:0x00000000015f68>):
+     8:             <div class="card-body">
+     9:               <h5 class="card-title"><%= board.name %></h5>
+    10:               <p class="card-text"><%= board.description %></p>
+    11:               <a href="<%= board_path(board) %>" class="btn btn-primary">View Board</a>
+    12:             </div>
+    13:           </div>
+    14:         </div>
+  
+app/views/home/index.html.erb:11
+app/views/home/index.html.erb:5
+Started GET "/" for 127.0.0.1 at 2024-05-02 18:04:44 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:4
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mState Load (0.5ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 18], ["board_id", 17], ["board_id", 16]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 69], ["state_id", 70], ["state_id", 71], ["state_id", 72], ["state_id", 65], ["state_id", 66], ["state_id", 67], ["state_id", 68], ["state_id", 61], ["state_id", 62], ["state_id", 63], ["state_id", 64]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 46.5ms | Allocations: 14361)
+  Rendered layout layouts/application.html.erb (Duration: 111.9ms | Allocations: 36034)
+Completed 200 OK in 122ms (Views: 101.5ms | ActiveRecord: 12.4ms | Allocations: 38655)
+
+
+Started GET "/boards/18" for 127.0.0.1 at 2024-05-02 18:04:46 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:3:in `show'
+Completed 406 Not Acceptable in 7ms (ActiveRecord: 0.9ms | Allocations: 2426)
+
+
+  
+ActionController::MissingExactTemplate (BoardsController#show is missing a template for request formats: text/html):
+  
+actionpack (7.1.3.2) lib/action_controller/metal/implicit_render.rb:47:in `default_render'
+actionpack (7.1.3.2) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.10) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.10) lib/rack/etag.rb:29:in `call'
+rack (3.0.10) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.10) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.10) lib/rack/method_override.rb:28:in `call'
+rack (3.0.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/boards/17" for 127.0.0.1 at 2024-05-02 18:04:52 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:3:in `show'
+Completed 406 Not Acceptable in 5ms (ActiveRecord: 0.6ms | Allocations: 963)
+
+
+  
+ActionController::MissingExactTemplate (BoardsController#show is missing a template for request formats: text/html):
+  
+actionpack (7.1.3.2) lib/action_controller/metal/implicit_render.rb:47:in `default_render'
+actionpack (7.1.3.2) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+turbo-rails (2.0.5) lib/turbo-rails.rb:24:in `with_request_id'
+turbo-rails (2.0.5) app/controllers/concerns/turbo/request_id_tracking.rb:10:in `turbo_tracking_request_id'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+actiontext (7.1.3.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.3.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.3.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.3.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.3.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.3.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.3.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.3.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.3.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.3.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.3.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.3.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.3.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.10) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.10) lib/rack/etag.rb:29:in `call'
+rack (3.0.10) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.10) lib/rack/head.rb:15:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.3.2) lib/active_record/migration.rb:655:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.3.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.3.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.3.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.3.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.10) lib/rack/method_override.rb:28:in `call'
+rack (3.0.10) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.10) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.3.2) lib/rails/engine.rb:536:in `call'
+puma (6.4.2) lib/puma/configuration.rb:272:in `call'
+puma (6.4.2) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.2) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.2) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.2) lib/puma/server.rb:464:in `process_client'
+puma (6.4.2) lib/puma/server.rb:245:in `block in run'
+puma (6.4.2) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/boards/17" for 127.0.0.1 at 2024-05-02 18:05:44 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mBoard Load (0.6ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.5ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 17]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 65]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 66]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 67]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 68]]
+  ↳ app/views/boards/show.html.erb:8
+  Rendered boards/show.html.erb within layouts/application (Duration: 45.9ms | Allocations: 11827)
+  Rendered layout layouts/application.html.erb (Duration: 54.2ms | Allocations: 14612)
+Completed 200 OK in 86ms (Views: 47.7ms | ActiveRecord: 19.2ms | Allocations: 20894)
+
+
+Started GET "/boards/18" for 127.0.0.1 at 2024-05-02 18:05:47 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mBoard Load (0.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (1.3ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 18]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 69]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 70]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 71]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 72]]
+  ↳ app/views/boards/show.html.erb:8
+  Rendered boards/show.html.erb within layouts/application (Duration: 17.1ms | Allocations: 2898)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 5315)
+Completed 200 OK in 30ms (Views: 20.3ms | ActiveRecord: 4.1ms | Allocations: 5964)
+
+
+Started GET "/boards/17" for 127.0.0.1 at 2024-05-02 18:05:54 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.5ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 17]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 65]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 66]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 67]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 68]]
+  ↳ app/views/boards/show.html.erb:8
+  Rendered boards/show.html.erb within layouts/application (Duration: 9.3ms | Allocations: 2896)
+  Rendered layout layouts/application.html.erb (Duration: 14.9ms | Allocations: 5334)
+Completed 200 OK in 18ms (Views: 13.9ms | ActiveRecord: 2.2ms | Allocations: 5981)
+
+
+Started GET "/boards/16" for 127.0.0.1 at 2024-05-02 18:05:56 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mBoard Load (0.5ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.7ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 16]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 61]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 62]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 63]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 64]]
+  ↳ app/views/boards/show.html.erb:8
+  Rendered boards/show.html.erb within layouts/application (Duration: 14.2ms | Allocations: 2896)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 5328)
+Completed 200 OK in 27ms (Views: 21.4ms | ActiveRecord: 2.7ms | Allocations: 5975)
+
+
+Started GET "/boards/18" for 127.0.0.1 at 2024-05-02 18:07:16 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"18"}
+  [1m[36mBoard Load (0.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 18], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (1.1ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 18]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 69]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 70]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 71]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 72]]
+  ↳ app/views/boards/show.html.erb:8
+  Rendered boards/show.html.erb within layouts/application (Duration: 15.8ms | Allocations: 2896)
+  Rendered layout layouts/application.html.erb (Duration: 22.4ms | Allocations: 5319)
+Completed 200 OK in 31ms (Views: 21.3ms | ActiveRecord: 3.1ms | Allocations: 5987)
+
+
+Started GET "/boards/17" for 127.0.0.1 at 2024-05-02 18:07:19 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 17], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.8ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 17]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 65]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 66]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 67]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 68]]
+  ↳ app/views/boards/show.html.erb:8
+  Rendered boards/show.html.erb within layouts/application (Duration: 12.5ms | Allocations: 2896)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 5334)
+Completed 200 OK in 28ms (Views: 21.1ms | ActiveRecord: 2.5ms | Allocations: 5981)
+
+
