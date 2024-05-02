@@ -1,0 +1,19 @@
+<!-- app/views/home/index.html.erb -->
+<div class="container">
+  <div class="navbar">...</div>
+  <h1>Welcome to the Boards App</h1>
+  <div class="row">
+    <% @boards.each do |board| %>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= board.name %></h5>
+            <p class="card-text"><%= board.description %></p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="footer">...</div>
+</div>
