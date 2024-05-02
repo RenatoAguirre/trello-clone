@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'boards/:id', to: 'boards#show' 
   resources :boards, only: [:show]
+  # config/routes.rb
+  get 'sign_in', to: 'sessions#new', as: :sign_in
 
 end

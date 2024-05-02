@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>CourseProjectTeam20</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Boards Manager</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
-  </head>
+  <!-- Stylesheets -->
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' if defined?(Webpacker) %>
 
-  <body>
+  <!-- JavaScript -->
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' if defined?(Webpacker) %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <%= render 'layouts/navbar' %>
+
+  <div class="container mt-4">
     <%= yield %>
-  </body>
-</html>
-
-<!-- Example navigation bar in app/views/layouts/application.html.erb -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">BoardsManager</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-    </ul>
   </div>
-</nav>
+
+  <%= render 'layouts/footer' %>
+</body>
+</html>

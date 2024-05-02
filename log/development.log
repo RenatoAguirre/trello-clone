@@ -1574,3 +1574,81 @@ Processing by BoardsController#show as HTML
 Completed 200 OK in 28ms (Views: 21.1ms | ActiveRecord: 2.5ms | Allocations: 5981)
 
 
+Started GET "/" for 127.0.0.1 at 2024-05-02 18:16:38 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:4
+  [1m[36mBoard Load (1.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mState Load (0.9ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 16], ["board_id", 15], ["board_id", 14]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mTask Load (1.0ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 52], ["state_id", 53], ["state_id", 54], ["state_id", 55], ["state_id", 48], ["state_id", 49], ["state_id", 50], ["state_id", 51], ["state_id", 44], ["state_id", 45], ["state_id", 46], ["state_id", 47]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 74.1ms | Allocations: 25846)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 117)
+  Rendered layouts/_footer.html.erb (Duration: 0.3ms | Allocations: 101)
+  Rendered layout layouts/application.html.erb (Duration: 435.4ms | Allocations: 49885)
+Completed 200 OK in 470ms (Views: 417.0ms | ActiveRecord: 28.6ms | Allocations: 64615)
+
+
+Started GET "/boards/16" for 127.0.0.1 at 2024-05-02 18:16:42 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"16"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 16]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 52]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 53]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 54]]
+  ↳ app/views/boards/show.html.erb:8
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 55]]
+  ↳ app/views/boards/show.html.erb:8
+  Rendered boards/show.html.erb within layouts/application (Duration: 11.2ms | Allocations: 5218)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 232.0ms | Allocations: 7881)
+Completed 200 OK in 241ms (Views: 232.8ms | ActiveRecord: 1.1ms | Allocations: 10050)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-02 18:22:25 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mBoard Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:4
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" ORDER BY created_at DESC LIMIT $1[0m  [["LIMIT", 3]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" IN ($1, $2, $3)[0m  [["board_id", 16], ["board_id", 15], ["board_id", 14]]
+  ↳ app/views/home/index.html.erb:5
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" IN ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12)[0m  [["state_id", 52], ["state_id", 53], ["state_id", 54], ["state_id", 55], ["state_id", 48], ["state_id", 49], ["state_id", 50], ["state_id", 51], ["state_id", 44], ["state_id", 45], ["state_id", 46], ["state_id", 47]]
+  ↳ app/views/home/index.html.erb:5
+  Rendered home/index.html.erb within layouts/application (Duration: 23.0ms | Allocations: 14329)
+  Rendered layouts/_navbar.html.erb (Duration: 0.3ms | Allocations: 144)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 185.9ms | Allocations: 17687)
+Completed 200 OK in 190ms (Views: 176.4ms | ActiveRecord: 10.8ms | Allocations: 20271)
+
+
+Started GET "/sign_in" for 127.0.0.1 at 2024-05-02 18:22:27 -0400
+Processing by SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (Duration: 0.4ms | Allocations: 94)
+  Rendered layouts/_navbar.html.erb (Duration: 0.2ms | Allocations: 38)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 224.7ms | Allocations: 2769)
+Completed 200 OK in 227ms (Views: 225.9ms | ActiveRecord: 0.0ms | Allocations: 3212)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-02 18:22:28 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/boards"):
+  
