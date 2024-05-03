@@ -58,4 +58,8 @@ end
   end
 end
 
+tags = ['Urgente', 'Importante', 'Opcional'].map do |tag_name|
+  Tag.create(name: tag_name, color: "red")
+end
+
 puts "Data seeded successfully!"
