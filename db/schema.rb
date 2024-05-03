@@ -34,11 +34,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_02_175447) do
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.bigint "board_id", null: false
     t.bigint "state_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["board_id"], name: "index_tasks_on_board_id"
     t.index ["state_id"], name: "index_tasks_on_state_id"
   end
 
@@ -51,6 +49,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_02_175447) do
 
   add_foreign_key "boards", "users"
   add_foreign_key "states", "boards"
-  add_foreign_key "tasks", "boards"
   add_foreign_key "tasks", "states"
 end

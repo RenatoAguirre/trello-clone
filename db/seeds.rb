@@ -17,40 +17,43 @@
 # db/seeds.rb
 
 # Clear existing records to avoid foreign key constraint issues
+# db/seeds.rb
+
+# Clear existing records to prevent duplication issues
 Task.delete_all
 State.delete_all
 Board.delete_all
 User.delete_all
 
+
 # Create users
-users = User.create([
-  { name: 'Alice', email: 'alice@example.com' },
-  { name: 'Bob', email: 'bob@example.com' },
-  { name: 'Carol', email: 'carol@example.com' }
-])
+3.times do |i|
+  User.create!(
+    name: "user#{i+1}",
+    email: "user#{i+1}@example.com"
+  )
+end
 
-# Define state names outside the loops to ensure consistency
-state_names = ['To Do', 'In Progress', 'Review', 'Completed']
-
-# Create boards, states, and tasks for each user
-users.each do |user|
-  3.times do |i|  # Creating 3 boards for each user
-    board = user.boards.create(
-      name: "Project #{i + 1}",
-      description: "Description for Project #{i + 1}"
+# Create boards with random users
+3.times do |i|
+  random_user = User.order("RANDOM()").first
+  board = random_user.boards.create!(
+    name: "Board #{i+1} for #{random_user.name}",
+    description: "Description for Board #{i+1} created by #{random_user.name}"
+  )
+  
+  # Create states for each board
+  5.times do |j|
+    state = board.states.create!(
+      name: "State #{j+1} for #{board.name}",
     )
-
-    # Create 4 states for each board
-    state_names.each do |state_name|
-      state = board.states.create(name: state_name)
-
-      # Create at least 5 tasks for each state
-      5.times do |j|
-        state.tasks.create(
-          title: "Task #{j + 1}",
-          description: "Description for Task #{j + 1} in state #{state_name}"
-        )
-      end
+    
+    # Create tasks for each state
+    5.times do |k|
+      state.tasks.create!(
+        title: "Task #{k+1} for #{state.name}",
+        description: "Description for Task #{k+1} of #{state.name}"
+      )
     end
   end
 end

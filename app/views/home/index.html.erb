@@ -1,13 +1,14 @@
 <div class="container mt-3">
   <h1>Welcome to the Boards Manager</h1>
   <div class="row">
-    <% if @latest_boards.any? %>
-      <% @latest_boards.each do |board| %>
+    <% if @boards.any? %>
+      <% @boards.each do |board| %>
         <div class="col-md-4">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title"><%= board.name %></h5>
               <p class="card-text"><%= board.description %></p>
+              <p>Created by: <%= board.user_id %></p>
               <a href="<%= board_path(board) %>" class="btn btn-primary">View Board</a>
             </div>
           </div>
