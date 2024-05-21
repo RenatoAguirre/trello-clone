@@ -1,0 +1,18 @@
+<h1>All Boards</h1>
+<%= link_to 'New Board', new_board_path, class: 'btn btn-success mb-3' %>
+<div class="row">
+  <% @boards.each do |board| %>
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title"><%= board.name %></h5>
+          <p class="card-text"><%= board.description %></p>
+        </div>
+        <div class="card-footer">
+          <%= link_to 'Show', board_path(board), class: 'btn btn-info' %>
+          <%= link_to 'Edit', edit_board_path(board), class: 'btn btn-warning' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

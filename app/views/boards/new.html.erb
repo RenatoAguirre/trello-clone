@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h1>New Board</h1>
+  <%= form_with model: @board, local: true, html: { class: 'needs-validation', novalidate: "" } do |form| %>
+    <% if @board.errors.any? %>
+      <div class="alert alert-danger" role="alert">
+        <h4 class="alert-heading">Please correct the following errors:</h4>
+        <ul>
+          <% @board.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control', id: 'board_name', placeholder: 'Enter board name' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :description, class: 'form-label' %>
+      <%= form.text_area :description, rows: 5, class: 'form-control', id: 'board_description', placeholder: 'Enter board description' %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :user_id, 'Owner', class: 'form-label' %>
+      <%= form.collection_select :user_id, User.all, :id, :name, { prompt: "Choose an owner" }, { class: 'form-control' } %>
+    </div>
+
+    <div class="actions mt-3">
+      <%= form.submit 'Create Board', class: 'btn btn-primary' %>
+      <%= link_to 'Back to Boards', boards_path, class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+</div>
