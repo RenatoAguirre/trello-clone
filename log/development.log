@@ -12310,3 +12310,185 @@ Processing by BoardsController#show as HTML
 Completed 200 OK in 26ms (Views: 19.7ms | ActiveRecord: 4.6ms | Allocations: 7540)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (7878.0ms)[0m  [1m[35mDROP DATABASE IF EXISTS "course_project_team_20_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (7465.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "course_project_team_20_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (7393.9ms)[0m  [1m[35mDROP DATABASE IF EXISTS "course_project_team_20_development"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (7787.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "course_project_team_20_development"[0m
+Started GET "/" for 127.0.0.1 at 2024-05-20 23:31:32 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 365)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 117)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 101)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 3078)
+Completed 200 OK in 31ms (Views: 14.7ms | ActiveRecord: 0.0ms | Allocations: 14675)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-20 23:31:34 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.8ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:4
+  Rendered boards/index.html.erb within layouts/application (Duration: 35.1ms | Allocations: 13302)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 36.4ms | Allocations: 13959)
+Completed 200 OK in 38ms (Views: 24.2ms | ActiveRecord: 13.1ms | Allocations: 14417)
+
+
+Started GET "/boards/5" for 127.0.0.1 at 2024-05-20 23:31:36 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.6ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 5]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (1.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 21]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 22]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 23]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 24]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 25]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 49.6ms | Allocations: 20962)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 50.7ms | Allocations: 21597)
+Completed 200 OK in 57ms (Views: 41.7ms | ActiveRecord: 9.9ms | Allocations: 24190)
+
+
+Started GET "/" for 127.0.0.1 at 2024-05-20 23:37:14 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 365)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 117)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 101)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 4624)
+Completed 200 OK in 42ms (Views: 14.8ms | ActiveRecord: 0.0ms | Allocations: 23724)
+
+
+Started GET "/boards" for 127.0.0.1 at 2024-05-20 23:37:15 -0400
+Processing by BoardsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (3.9ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:4
+  Rendered boards/index.html.erb within layouts/application (Duration: 49.4ms | Allocations: 13516)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_footer.html.erb (Duration: 5.8ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 56.8ms | Allocations: 14149)
+Completed 200 OK in 60ms (Views: 40.0ms | ActiveRecord: 18.2ms | Allocations: 14606)
+
+
+Started GET "/boards/5" for 127.0.0.1 at 2024-05-20 23:37:17 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.9ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 5]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (0.7ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 21]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 22]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 23]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 24]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 25]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 61.3ms | Allocations: 24729)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 62.2ms | Allocations: 25349)
+Completed 200 OK in 72ms (Views: 51.9ms | ActiveRecord: 11.4ms | Allocations: 28349)
+
+
+Started GET "/boards/5" for 127.0.0.1 at 2024-05-20 23:37:54 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 5]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 21]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 22]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 23]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 24]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 25]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 15.3ms | Allocations: 16424)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 109)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 16.7ms | Allocations: 17724)
+Completed 200 OK in 25ms (Views: 10.2ms | ActiveRecord: 11.1ms | Allocations: 23614)
+
+
+Started GET "/boards/5" for 127.0.0.1 at 2024-05-20 23:37:57 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 5]]
+  ↳ app/views/boards/show.html.erb:5
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 21]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (5.2ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 22]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 23]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 24]]
+  ↳ app/views/boards/show.html.erb:11
+  [1m[36mTask Load (0.1ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 25]]
+  ↳ app/views/boards/show.html.erb:11
+  Rendered boards/show.html.erb within layouts/application (Duration: 18.9ms | Allocations: 4264)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | Allocations: 4923)
+Completed 200 OK in 25ms (Views: 15.1ms | ActiveRecord: 6.4ms | Allocations: 5575)
+
+
