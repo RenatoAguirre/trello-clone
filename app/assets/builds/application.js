@@ -628,8 +628,7 @@ __export(turbo_es2017_esm_exports, {
   visit: () => visit
 });
 (function(prototype) {
-  if (typeof prototype.requestSubmit == "function")
-    return;
+  if (typeof prototype.requestSubmit == "function") return;
   prototype.requestSubmit = function(submitter) {
     if (submitter) {
       validateSubmitter(submitter, this);
@@ -665,8 +664,7 @@ function clickCaptured(event) {
   }
 }
 (function() {
-  if ("submitter" in Event.prototype)
-    return;
+  if ("submitter" in Event.prototype) return;
   let prototype = window.Event.prototype;
   if ("SubmitEvent" in window) {
     const prototypeOfSubmitEvent = window.SubmitEvent.prototype;
@@ -1016,8 +1014,7 @@ function uuid() {
 }
 function getAttribute(attributeName, ...elements) {
   for (const value of elements.map((element) => element?.getAttribute(attributeName))) {
-    if (typeof value == "string")
-      return value;
+    if (typeof value == "string") return value;
   }
   return null;
 }
@@ -1107,8 +1104,7 @@ async function around(callback, reader) {
 function doesNotTargetIFrame(anchor) {
   if (anchor.hasAttribute("target")) {
     for (const element of document.getElementsByName(anchor.target)) {
-      if (element instanceof HTMLIFrameElement)
-        return false;
+      if (element instanceof HTMLIFrameElement) return false;
     }
   }
   return true;
@@ -1315,8 +1311,7 @@ var FetchRequest = class {
       target: this.target
     });
     this.url = event.detail.url;
-    if (event.defaultPrevented)
-      await requestInterception;
+    if (event.defaultPrevented) await requestInterception;
     return event;
   }
   #willDelegateErrorHandling(error2) {
@@ -1344,10 +1339,8 @@ function buildResourceAndBody(resource, method, requestBody, enctype) {
 function entriesExcludingFiles(requestBody) {
   const entries = [];
   for (const [name, value] of requestBody) {
-    if (value instanceof File)
-      continue;
-    else
-      entries.push([name, value]);
+    if (value instanceof File) continue;
+    else entries.push([name, value]);
   }
   return entries;
 }
@@ -1426,8 +1419,7 @@ var PrefetchCache = class {
     this.#prefetched = { url, request, expire: new Date((/* @__PURE__ */ new Date()).getTime() + ttl) };
   }
   clear() {
-    if (this.#prefetchTimeout)
-      clearTimeout(this.#prefetchTimeout);
+    if (this.#prefetchTimeout) clearTimeout(this.#prefetchTimeout);
     this.#prefetched = null;
   }
 };
@@ -1567,8 +1559,7 @@ var FormSubmission = class _FormSubmission {
   }
   // Private
   setSubmitsWith() {
-    if (!this.submitter || !this.submitsWith)
-      return;
+    if (!this.submitter || !this.submitsWith) return;
     if (this.submitter.matches("button")) {
       this.originalSubmitText = this.submitter.innerHTML;
       this.submitter.innerHTML = this.submitsWith;
@@ -1579,8 +1570,7 @@ var FormSubmission = class _FormSubmission {
     }
   }
   resetSubmitterText() {
-    if (!this.submitter || !this.originalSubmitText)
-      return;
+    if (!this.submitter || !this.originalSubmitText) return;
     if (this.submitter.matches("button")) {
       this.submitter.innerHTML = this.originalSubmitText;
     } else if (this.submitter.matches("input")) {
@@ -1730,8 +1720,7 @@ function submissionDoesNotTargetIFrame(form, submitter) {
   if (submitter?.hasAttribute("formtarget") || form.hasAttribute("target")) {
     const target = submitter?.getAttribute("formtarget") || form.target;
     for (const element of document.getElementsByName(target)) {
-      if (element instanceof HTMLIFrameElement)
-        return false;
+      if (element instanceof HTMLIFrameElement) return false;
     }
     return true;
   } else {
@@ -1795,8 +1784,7 @@ var View = class {
         const renderInterception = new Promise((resolve) => this.#resolveInterceptionPromise = resolve);
         const options = { resume: this.#resolveInterceptionPromise, render: this.renderer.renderElement, renderMethod: this.renderer.renderMethod };
         const immediateRender = this.delegate.allowsImmediateRender(snapshot, options);
-        if (!immediateRender)
-          await renderInterception;
+        if (!immediateRender) await renderInterception;
         await this.renderSnapshot(renderer);
         this.delegate.viewRenderedSnapshot(snapshot, isPreview, this.renderer.renderMethod);
         this.delegate.preloadOnLoadLinksForView(this.element);
@@ -1957,20 +1945,15 @@ var FormLinkClickObserver = class {
     form.setAttribute("action", action.href);
     form.setAttribute("hidden", "");
     const method = link.getAttribute("data-turbo-method");
-    if (method)
-      form.setAttribute("method", method);
+    if (method) form.setAttribute("method", method);
     const turboFrame = link.getAttribute("data-turbo-frame");
-    if (turboFrame)
-      form.setAttribute("data-turbo-frame", turboFrame);
+    if (turboFrame) form.setAttribute("data-turbo-frame", turboFrame);
     const turboAction = getVisitAction(link);
-    if (turboAction)
-      form.setAttribute("data-turbo-action", turboAction);
+    if (turboAction) form.setAttribute("data-turbo-action", turboAction);
     const turboConfirm = link.getAttribute("data-turbo-confirm");
-    if (turboConfirm)
-      form.setAttribute("data-turbo-confirm", turboConfirm);
+    if (turboConfirm) form.setAttribute("data-turbo-confirm", turboConfirm);
     const turboStream = link.hasAttribute("data-turbo-stream");
-    if (turboStream)
-      form.setAttribute("data-turbo-stream", "");
+    if (turboStream) form.setAttribute("data-turbo-stream", "");
     this.delegate.submittedFormLinkToLocation(link, location2, form);
     document.body.appendChild(form);
     form.addEventListener("turbo:submit-end", () => form.remove(), { once: true });
@@ -2066,8 +2049,7 @@ var Renderer = class {
   }
   // Bardo delegate
   enteringBardo(currentPermanentElement) {
-    if (this.#activeElement)
-      return;
+    if (this.#activeElement) return;
     if (currentPermanentElement.contains(this.currentSnapshot.activeElement)) {
       this.#activeElement = this.currentSnapshot.activeElement;
     }
@@ -2375,10 +2357,8 @@ var PageSnapshot = class _PageSnapshot extends Snapshot {
     const clonedSelectElements = clonedElement.querySelectorAll("select");
     for (const [index, source] of selectElements.entries()) {
       const clone = clonedSelectElements[index];
-      for (const option of clone.selectedOptions)
-        option.selected = false;
-      for (const option of source.selectedOptions)
-        clone.options[option.index].selected = true;
+      for (const option of clone.selectedOptions) option.selected = false;
+      for (const option of source.selectedOptions) clone.options[option.index].selected = true;
     }
     for (const clonedPasswordInput of clonedElement.querySelectorAll('input[type="password"]')) {
       clonedPasswordInput.value = "";
@@ -2617,10 +2597,8 @@ var Visit = class {
     if (this.response) {
       const { statusCode, responseHTML } = this.response;
       this.render(async () => {
-        if (this.shouldCacheSnapshot)
-          this.cacheSnapshot();
-        if (this.view.renderPromise)
-          await this.view.renderPromise;
+        if (this.shouldCacheSnapshot) this.cacheSnapshot();
+        if (this.view.renderPromise) await this.view.renderPromise;
         if (isSuccessful(statusCode) && responseHTML != null) {
           const snapshot = PageSnapshot.fromHTMLString(responseHTML);
           await this.renderPageSnapshot(snapshot, false);
@@ -2659,8 +2637,7 @@ var Visit = class {
         if (this.isSamePage || this.isPageRefresh) {
           this.adapter.visitRendered(this);
         } else {
-          if (this.view.renderPromise)
-            await this.view.renderPromise;
+          if (this.view.renderPromise) await this.view.renderPromise;
           await this.renderPageSnapshot(snapshot, isPreview);
           this.adapter.visitRendered(this);
           if (!isPreview) {
@@ -3050,8 +3027,7 @@ var History = class {
     this.update(history.replaceState, location2, restorationIdentifier);
   }
   update(method, location2, restorationIdentifier = uuid()) {
-    if (method === history.pushState)
-      ++this.currentIndex;
+    if (method === history.pushState) ++this.currentIndex;
     const state = { turbo: { restorationIdentifier, restorationIndex: this.currentIndex } };
     method.call(history, state, "", location2.href);
     this.location = location2;
@@ -3116,8 +3092,7 @@ var LinkPrefetchObserver = class {
     this.eventTarget = eventTarget;
   }
   start() {
-    if (this.started)
-      return;
+    if (this.started) return;
     if (this.eventTarget.readyState === "loading") {
       this.eventTarget.addEventListener("DOMContentLoaded", this.#enable, { once: true });
     } else {
@@ -3125,8 +3100,7 @@ var LinkPrefetchObserver = class {
     }
   }
   stop() {
-    if (!this.started)
-      return;
+    if (!this.started) return;
     this.eventTarget.removeEventListener("mouseenter", this.#tryToPrefetchRequest, {
       capture: true,
       passive: true
@@ -3151,8 +3125,7 @@ var LinkPrefetchObserver = class {
     this.started = true;
   };
   #tryToPrefetchRequest = (event) => {
-    if (getMetaContent("turbo-prefetch") === "false")
-      return;
+    if (getMetaContent("turbo-prefetch") === "false") return;
     const target = event.target;
     const isLink = target.matches && target.matches("a[href]:not([target^=_]):not([download])");
     if (isLink && this.#isPrefetchable(target)) {
@@ -3172,8 +3145,7 @@ var LinkPrefetchObserver = class {
     }
   };
   #cancelRequestIfObsolete = (event) => {
-    if (event.target === this.#prefetchedLink)
-      this.#cancelPrefetchRequest();
+    if (event.target === this.#prefetchedLink) this.#cancelPrefetchRequest();
   };
   #cancelPrefetchRequest = () => {
     prefetchCache.clear();
@@ -3215,18 +3187,12 @@ var LinkPrefetchObserver = class {
   }
   #isPrefetchable(link) {
     const href = link.getAttribute("href");
-    if (!href)
-      return false;
-    if (unfetchableLink(link))
-      return false;
-    if (linkToTheSamePage(link))
-      return false;
-    if (linkOptsOut(link))
-      return false;
-    if (nonSafeLink(link))
-      return false;
-    if (eventPrevented(link))
-      return false;
+    if (!href) return false;
+    if (unfetchableLink(link)) return false;
+    if (linkToTheSamePage(link)) return false;
+    if (linkOptsOut(link)) return false;
+    if (nonSafeLink(link)) return false;
+    if (eventPrevented(link)) return false;
     return true;
   }
 };
@@ -3237,25 +3203,18 @@ var linkToTheSamePage = (link) => {
   return link.pathname + link.search === document.location.pathname + document.location.search || link.href.startsWith("#");
 };
 var linkOptsOut = (link) => {
-  if (link.getAttribute("data-turbo-prefetch") === "false")
-    return true;
-  if (link.getAttribute("data-turbo") === "false")
-    return true;
+  if (link.getAttribute("data-turbo-prefetch") === "false") return true;
+  if (link.getAttribute("data-turbo") === "false") return true;
   const turboPrefetchParent = findClosestRecursively(link, "[data-turbo-prefetch]");
-  if (turboPrefetchParent && turboPrefetchParent.getAttribute("data-turbo-prefetch") === "false")
-    return true;
+  if (turboPrefetchParent && turboPrefetchParent.getAttribute("data-turbo-prefetch") === "false") return true;
   return false;
 };
 var nonSafeLink = (link) => {
   const turboMethod = link.getAttribute("data-turbo-method");
-  if (turboMethod && turboMethod.toLowerCase() !== "get")
-    return true;
-  if (isUJS(link))
-    return true;
-  if (link.hasAttribute("data-turbo-confirm"))
-    return true;
-  if (link.hasAttribute("data-turbo-stream"))
-    return true;
+  if (turboMethod && turboMethod.toLowerCase() !== "get") return true;
+  if (isUJS(link)) return true;
+  if (link.hasAttribute("data-turbo-confirm")) return true;
+  if (link.hasAttribute("data-turbo-stream")) return true;
   return false;
 };
 var isUJS = (link) => {
@@ -3542,8 +3501,7 @@ async function withPreservedFocus(callback) {
 function firstAutofocusableElementInStreams(nodeListOfStreamElements) {
   for (const streamElement of nodeListOfStreamElements) {
     const elementWithAutofocus = queryAutofocusableElement(streamElement.templateElement.content);
-    if (elementWithAutofocus)
-      return elementWithAutofocus;
+    if (elementWithAutofocus) return elementWithAutofocus;
   }
   return null;
 }
@@ -3716,28 +3674,22 @@ var Idiomorph = /* @__PURE__ */ function() {
     return ctx.ignoreActiveValue && possibleActiveElement === document.activeElement && possibleActiveElement !== document.body;
   }
   function morphOldNodeTo(oldNode, newContent, ctx) {
-    if (ctx.ignoreActive && oldNode === document.activeElement)
-      ;
+    if (ctx.ignoreActive && oldNode === document.activeElement) ;
     else if (newContent == null) {
-      if (ctx.callbacks.beforeNodeRemoved(oldNode) === false)
-        return oldNode;
+      if (ctx.callbacks.beforeNodeRemoved(oldNode) === false) return oldNode;
       oldNode.remove();
       ctx.callbacks.afterNodeRemoved(oldNode);
       return null;
     } else if (!isSoftMatch(oldNode, newContent)) {
-      if (ctx.callbacks.beforeNodeRemoved(oldNode) === false)
-        return oldNode;
-      if (ctx.callbacks.beforeNodeAdded(newContent) === false)
-        return oldNode;
+      if (ctx.callbacks.beforeNodeRemoved(oldNode) === false) return oldNode;
+      if (ctx.callbacks.beforeNodeAdded(newContent) === false) return oldNode;
       oldNode.parentElement.replaceChild(newContent, oldNode);
       ctx.callbacks.afterNodeAdded(newContent);
       ctx.callbacks.afterNodeRemoved(oldNode);
       return newContent;
     } else {
-      if (ctx.callbacks.beforeNodeMorphed(oldNode, newContent) === false)
-        return oldNode;
-      if (oldNode instanceof HTMLHeadElement && ctx.head.ignore)
-        ;
+      if (ctx.callbacks.beforeNodeMorphed(oldNode, newContent) === false) return oldNode;
+      if (oldNode instanceof HTMLHeadElement && ctx.head.ignore) ;
       else if (oldNode instanceof HTMLHeadElement && ctx.head.style !== "morph") {
         handleHeadElement(newContent, oldNode, ctx);
       } else {
@@ -3758,8 +3710,7 @@ var Idiomorph = /* @__PURE__ */ function() {
       newChild = nextNewChild;
       nextNewChild = newChild.nextSibling;
       if (insertionPoint == null) {
-        if (ctx.callbacks.beforeNodeAdded(newChild) === false)
-          return;
+        if (ctx.callbacks.beforeNodeAdded(newChild) === false) return;
         oldParent.appendChild(newChild);
         ctx.callbacks.afterNodeAdded(newChild);
         removeIdsFromConsideration(ctx, newChild);
@@ -3785,8 +3736,7 @@ var Idiomorph = /* @__PURE__ */ function() {
         removeIdsFromConsideration(ctx, newChild);
         continue;
       }
-      if (ctx.callbacks.beforeNodeAdded(newChild) === false)
-        return;
+      if (ctx.callbacks.beforeNodeAdded(newChild) === false) return;
       oldParent.insertBefore(newChild, insertionPoint);
       ctx.callbacks.afterNodeAdded(newChild);
       removeIdsFromConsideration(ctx, newChild);
@@ -4134,8 +4084,7 @@ var Idiomorph = /* @__PURE__ */ function() {
   }
   function removeNode(tempNode, ctx) {
     removeIdsFromConsideration(ctx, tempNode);
-    if (ctx.callbacks.beforeNodeRemoved(tempNode) === false)
-      return;
+    if (ctx.callbacks.beforeNodeRemoved(tempNode) === false) return;
     tempNode.remove();
     ctx.callbacks.afterNodeRemoved(tempNode);
   }
@@ -4360,8 +4309,7 @@ var PageRenderer = class extends Renderer {
 };
 var MorphRenderer = class extends PageRenderer {
   async render() {
-    if (this.willRender)
-      await this.#morphBody();
+    if (this.willRender) await this.#morphBody();
   }
   get renderMethod() {
     return "morph";
@@ -4489,8 +4437,7 @@ var SnapshotCache = class {
   touch(location2) {
     const key = toCacheKey(location2);
     const index = this.keys.indexOf(key);
-    if (index > -1)
-      this.keys.splice(index, 1);
+    if (index > -1) this.keys.splice(index, 1);
     this.keys.unshift(key);
     this.trim();
   }
@@ -5089,8 +5036,7 @@ var FrameController = class {
     }
   }
   sourceURLChanged() {
-    if (this.#isIgnoringChangesTo("src"))
-      return;
+    if (this.#isIgnoringChangesTo("src")) return;
     if (this.element.isConnected) {
       this.complete = false;
     }
@@ -5151,8 +5097,7 @@ var FrameController = class {
   }
   submittedFormLinkToLocation(link, _location, form) {
     const frame = this.#findFrameElement(link);
-    if (frame)
-      form.setAttribute("data-turbo-frame", frame.id);
+    if (frame) form.setAttribute("data-turbo-frame", frame.id);
   }
   // Link interceptor delegate
   shouldInterceptLinkClick(element, _location, _event) {
@@ -5264,8 +5209,7 @@ var FrameController = class {
     if (newFrameElement) {
       const snapshot = new Snapshot(newFrameElement);
       const renderer = new FrameRenderer(this, this.view.snapshot, snapshot, FrameRenderer.renderElement, false, false);
-      if (this.view.renderPromise)
-        await this.view.renderPromise;
+      if (this.view.renderPromise) await this.view.renderPromise;
       this.changeHistory();
       await this.view.render(renderer);
       this.complete = true;
@@ -5315,8 +5259,7 @@ var FrameController = class {
             restorationIdentifier: this.restorationIdentifier,
             snapshot: pageSnapshot
           };
-          if (this.action)
-            options.action = this.action;
+          if (this.action) options.action = this.action;
           session.visit(frame.src, options);
         }
       };
@@ -5693,10 +5636,8 @@ if (customElements.get("turbo-stream-source") === void 0) {
 }
 (() => {
   let element = document.currentScript;
-  if (!element)
-    return;
-  if (element.hasAttribute("data-turbo-suppress-warning"))
-    return;
+  if (!element) return;
+  if (element.hasAttribute("data-turbo-suppress-warning")) return;
   element = element.parentElement;
   while (element) {
     if (element == document.body) {
@@ -5739,12 +5680,9 @@ async function subscribeTo(channel, mixin) {
 
 // node_modules/@hotwired/turbo-rails/app/javascript/turbo/snakeize.js
 function walk(obj) {
-  if (!obj || typeof obj !== "object")
-    return obj;
-  if (obj instanceof Date || obj instanceof RegExp)
-    return obj;
-  if (Array.isArray(obj))
-    return obj.map(walk);
+  if (!obj || typeof obj !== "object") return obj;
+  if (obj instanceof Date || obj instanceof RegExp) return obj;
+  if (Array.isArray(obj)) return obj.map(walk);
   return Object.keys(obj).reduce(function(acc, key) {
     var camel = key[0].toLowerCase() + key.slice(1).replace(/([A-Z]+)/g, function(m, x) {
       return "_" + x.toLowerCase();
@@ -5766,8 +5704,7 @@ var TurboCableStreamSourceElement = class extends HTMLElement {
   }
   disconnectedCallback() {
     disconnectStreamSource(this);
-    if (this.subscription)
-      this.subscription.unsubscribe();
+    if (this.subscription) this.subscription.unsubscribe();
   }
   dispatchMessageEvent(data) {
     const event = new MessageEvent("message", { data });
@@ -9299,8 +9236,7 @@ function flip(_ref) {
     };
     for (var _i = numberOfChecks; _i > 0; _i--) {
       var _ret = _loop(_i);
-      if (_ret === "break")
-        break;
+      if (_ret === "break") break;
     }
   }
   if (state.placement !== firstFittingPlacement) {

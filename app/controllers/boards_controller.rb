@@ -34,13 +34,12 @@ class BoardsController < ApplicationController
     end
   
     def destroy
-      #@board = Board.find(params[:id])
+      @board = Board.find(params[:id])
       @board.destroy
       respond_to do |format|
         format.html { redirect_to boards_url, notice: "Board was successfully destroyed." }
         format.json { head :no_content }
       end
-      #redirect_to boards_url, notice: 'Board was successfully destroyed.'
     end
   
     private

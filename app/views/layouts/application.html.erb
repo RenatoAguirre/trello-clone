@@ -11,7 +11,7 @@
 
   <!-- JavaScript -->
   <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' if defined?(Webpacker) %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', type: "module"%>
 </head>
 <body>
   <%= render 'layouts/navbar' %>
