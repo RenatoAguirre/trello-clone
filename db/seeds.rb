@@ -30,7 +30,9 @@ User.delete_all
 3.times do |i|
   User.create!(
     name: "user#{i+1}",
-    email: "user#{i+1}@example.com"
+    email: "user#{i+1}@example.com",
+    password: '123456',  
+    password_confirmation: '123456'
   )
 end
 
