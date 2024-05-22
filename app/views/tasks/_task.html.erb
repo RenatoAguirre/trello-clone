@@ -1,0 +1,5 @@
+<li class="list-group-item">
+<%= task.title %>
+<%= link_to 'Edit', edit_board_state_task_path(@board, task.state_id, task) %>
+<%= link_to 'Destroy', board_state_task_path(@board, task.state_id, task ), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }%>
+</li>

@@ -7,10 +7,7 @@
       </div>
       <ul class="list-group list-group-flush">
         <% state.tasks.each do |task| %>
-          <li class="list-group-item">
-            <%= task.title %>
-            <p><%= task.description %></p>
-          </li>
+          <%= render 'tasks/task', task: task %>
         <% end %>
       </ul>
     </div>

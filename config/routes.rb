@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   root 'home#index'
 
   resources :states
+  resources :tasks
   resources :boards do 
-    resources :states, only: [:create, :new, :show, :index, :edit, :destroy]
+    resources :states, only: [:create, :new, :show, :index, :edit, :destroy] do
+      resources :tasks, only: [:create, :new, :show, :index, :edit, :destroy]
+    end
   end
   # config/routes.rb
 
