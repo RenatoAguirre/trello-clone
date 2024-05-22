@@ -1,24 +1,10 @@
 <div class="container mt-4">
-  <h1><%= @board.name %></h1>
-  <p><%= @board.description %></p>
 
-  <% @board.states.each do |state| %>
-    <div class="card mb-3">
-      <div class="card-header">
-        <%= state.name %>
-      </div>
-      <ul class="list-group list-group-flush">
-        <% state.tasks.each do |task| %>
-          <li class="list-group-item">
-            <%= task.title %>
-            <p><%= task.description %></p>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= link_to 'add state', new_board_state_path(@board), method: :post, class: 'btn btn-warning' %>
+  <%= render partial: 'board', object: @board%>
+</div>  
+
 
   <%= link_to 'Edit', edit_board_path(@board), class: 'btn btn-warning' %>  
   <%= link_to 'Destroy', board_path(@board), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger' %>
   <%= link_to 'Back to Boards', boards_path(@board), class: 'btn btn-secondary' %>
-</div>  

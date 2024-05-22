@@ -1,0 +1,16 @@
+
+    <div class="card mb-3">
+      <div class="card-header">
+        <%= state.name %>
+        <%= link_to 'Edit', edit_board_state_path(@board, state), class: 'btn btn-warning' %>
+        <%= link_to 'Destroy', board_state_path(@board, state), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger' %>
+      </div>
+      <ul class="list-group list-group-flush">
+        <% state.tasks.each do |task| %>
+          <li class="list-group-item">
+            <%= task.title %>
+            <p><%= task.description %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
