@@ -1,14 +1,4 @@
 class StatesController < ApplicationController
-  def index
-    @states = State.all
-    if params[:board_id]
-      @board = Board.find(params[:board_id])
-    end
-  end
-  def show
-    @state = State.find(params[:id])
-  end
-
   def new
     @state = State.new
     if params[:board_id]
