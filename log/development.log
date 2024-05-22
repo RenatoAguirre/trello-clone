@@ -27644,3 +27644,204 @@ Processing by TasksController#new as HTML
 Completed 200 OK in 5ms (Views: 3.2ms | ActiveRecord: 0.2ms | Allocations: 1755)
 
 
+Started GET "/boards.4" for 127.0.0.1 at 2024-05-22 17:09:09 -0400
+Processing by BoardsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (29.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:4
+  Rendered boards/index.html.erb within layouts/application (Duration: 32.9ms | Allocations: 6192)
+  Rendered layouts/_navbar.html.erb (Duration: 0.1ms | Allocations: 109)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 35.2ms | Allocations: 7478)
+Completed 200 OK in 39ms (Views: -11.9ms | ActiveRecord: 48.1ms | Allocations: 9808)
+
+
+Started GET "/boards/new" for 127.0.0.1 at 2024-05-22 17:09:10 -0400
+Processing by BoardsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering boards/new.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/boards/new.html.erb:27
+  Rendered boards/new.html.erb within layouts/application (Duration: 28.2ms | Allocations: 5887)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 6310)
+Completed 200 OK in 31ms (Views: 22.6ms | ActiveRecord: 7.6ms | Allocations: 6628)
+
+
+Started POST "/boards" for 127.0.0.1 at 2024-05-22 17:09:15 -0400
+Processing by BoardsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "board"=>{"name"=>"test", "description"=>"dwad", "user_id"=>"5"}, "commit"=>"Create Board"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/boards_controller.rb:16:in `create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:16:in `create'
+  [1m[36mBoard Exists? (1.5ms)[0m  [1m[34mSELECT 1 AS one FROM "boards" WHERE LOWER("boards"."name") = LOWER($1) LIMIT $2[0m  [["name", "test"], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:16:in `create'
+  [1m[36mBoard Create (1.9ms)[0m  [1m[32mINSERT INTO "boards" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "test"], ["description", "dwad"], ["user_id", 5], ["created_at", "2024-05-22 21:09:15.135792"], ["updated_at", "2024-05-22 21:09:15.135792"]]
+  ↳ app/controllers/boards_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/boards_controller.rb:16:in `create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/boards_controller.rb:53:in `create_basic_states'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:53:in `create_basic_states'
+  [1m[36mState Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 AND "states"."board_id" = $2 LIMIT $3[0m  [["name", "To Do"], ["board_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:53:in `create_basic_states'
+  [1m[36mState Create (0.9ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "To Do"], ["board_id", 7], ["created_at", "2024-05-22 21:09:15.158014"], ["updated_at", "2024-05-22 21:09:15.158014"]]
+  ↳ app/controllers/boards_controller.rb:53:in `create_basic_states'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/boards_controller.rb:53:in `create_basic_states'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/boards_controller.rb:54:in `create_basic_states'
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:54:in `create_basic_states'
+  [1m[36mState Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 AND "states"."board_id" = $2 LIMIT $3[0m  [["name", "In Progress"], ["board_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:54:in `create_basic_states'
+  [1m[36mState Create (0.4ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "In Progress"], ["board_id", 7], ["created_at", "2024-05-22 21:09:15.165089"], ["updated_at", "2024-05-22 21:09:15.165089"]]
+  ↳ app/controllers/boards_controller.rb:54:in `create_basic_states'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/boards_controller.rb:54:in `create_basic_states'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/boards_controller.rb:55:in `create_basic_states'
+  [1m[36mBoard Load (1.7ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:55:in `create_basic_states'
+  [1m[36mState Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "states" WHERE "states"."name" = $1 AND "states"."board_id" = $2 LIMIT $3[0m  [["name", "Done"], ["board_id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:55:in `create_basic_states'
+  [1m[36mState Create (0.3ms)[0m  [1m[32mINSERT INTO "states" ("name", "board_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Done"], ["board_id", 7], ["created_at", "2024-05-22 21:09:15.172862"], ["updated_at", "2024-05-22 21:09:15.172862"]]
+  ↳ app/controllers/boards_controller.rb:55:in `create_basic_states'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/boards_controller.rb:55:in `create_basic_states'
+Redirected to http://127.0.0.1:3000/boards/7
+Completed 302 Found in 60ms (ActiveRecord: 18.7ms | Allocations: 19448)
+
+
+Started GET "/boards/7" for 127.0.0.1 at 2024-05-22 17:09:15 -0400
+Processing by BoardsController#show as TURBO_STREAM
+  Parameters: {"id"=>"7"}
+  [1m[36mBoard Load (0.3ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.2ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 7]]
+  ↳ app/views/boards/_board.html.erb:7
+  [1m[36mTask Load (0.6ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 33]]
+  ↳ app/views/states/_state.html.erb:9
+  Rendered states/_state.html.erb (Duration: 6.2ms | Allocations: 4674)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 34]]
+  ↳ app/views/states/_state.html.erb:9
+  Rendered states/_state.html.erb (Duration: 1.2ms | Allocations: 645)
+  [1m[36mTask Load (1.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 35]]
+  ↳ app/views/states/_state.html.erb:9
+  Rendered states/_state.html.erb (Duration: 2.3ms | Allocations: 645)
+  Rendered boards/_board.html.erb (Duration: 13.3ms | Allocations: 8578)
+  Rendered boards/show.html.erb within layouts/application (Duration: 14.6ms | Allocations: 9126)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 9748)
+Completed 200 OK in 19ms (Views: 13.1ms | ActiveRecord: 2.9ms | Allocations: 11076)
+
+
+Started GET "/boards/7/states/33/tasks/new" for 127.0.0.1 at 2024-05-22 17:09:19 -0400
+Processing by TasksController#new as HTML
+  Parameters: {"board_id"=>"7", "state_id"=>"33"}
+  [1m[36mState Load (0.3ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/tasks_controller.rb:6:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering tasks/new.html.erb within layouts/application
+  Rendered tasks/_form.html.erb (Duration: 2.2ms | Allocations: 901)
+  Rendered tasks/new.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1169)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 1589)
+Completed 200 OK in 22ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 5290)
+
+
+Started GET "/boards/7/states/33/edit" for 127.0.0.1 at 2024-05-22 17:09:21 -0400
+Processing by StatesController#edit as HTML
+  Parameters: {"board_id"=>"7", "id"=>"33"}
+  [1m[36mState Load (0.3ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 33], ["LIMIT", 1]]
+  ↳ app/controllers/states_controller.rb:26:in `edit'
+  [1m[36mBoard Load (0.1ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/states_controller.rb:28:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering states/edit.html.erb within layouts/application
+  Rendered states/_form.html.erb (Duration: 2.2ms | Allocations: 820)
+  Rendered states/edit.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1045)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 1465)
+Completed 200 OK in 11ms (Views: 8.1ms | ActiveRecord: 0.4ms | Allocations: 2736)
+
+
+Started GET "/boards.7" for 127.0.0.1 at 2024-05-22 17:09:22 -0400
+Processing by BoardsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering boards/index.html.erb within layouts/application
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards"[0m
+  ↳ app/views/boards/index.html.erb:4
+  Rendered boards/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 722)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 1349)
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.4ms | Allocations: 1592)
+
+
+Started GET "/boards/7/edit" for 127.0.0.1 at 2024-05-22 17:09:24 -0400
+Processing by BoardsController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBoard Load (0.4ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/edit.html.erb within layouts/application
+  Rendered boards/edit.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1130)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 1548)
+Completed 200 OK in 10ms (Views: 6.0ms | ActiveRecord: 0.5ms | Allocations: 2261)
+
+
+Started GET "/boards/7" for 127.0.0.1 at 2024-05-22 17:09:25 -0400
+Processing by BoardsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/boards_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering boards/show.html.erb within layouts/application
+  [1m[36mState Load (0.3ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."board_id" = $1[0m  [["board_id", 7]]
+  ↳ app/views/boards/_board.html.erb:7
+  [1m[36mTask Load (0.4ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 33]]
+  ↳ app/views/states/_state.html.erb:9
+  Rendered states/_state.html.erb (Duration: 3.3ms | Allocations: 646)
+  [1m[36mTask Load (0.3ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 34]]
+  ↳ app/views/states/_state.html.erb:9
+  Rendered states/_state.html.erb (Duration: 2.4ms | Allocations: 645)
+  [1m[36mTask Load (5.5ms)[0m  [1m[34mSELECT "tasks".* FROM "tasks" WHERE "tasks"."state_id" = $1[0m  [["state_id", 35]]
+  ↳ app/views/states/_state.html.erb:9
+  Rendered states/_state.html.erb (Duration: 7.8ms | Allocations: 645)
+  Rendered boards/_board.html.erb (Duration: 16.7ms | Allocations: 2825)
+  Rendered boards/show.html.erb within layouts/application (Duration: 17.3ms | Allocations: 3051)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | Allocations: 3667)
+Completed 200 OK in 21ms (Views: 13.1ms | ActiveRecord: 6.6ms | Allocations: 4318)
+
+
+Started GET "/boards/7/states/34/edit" for 127.0.0.1 at 2024-05-22 17:09:27 -0400
+Processing by StatesController#edit as HTML
+  Parameters: {"board_id"=>"7", "id"=>"34"}
+  [1m[36mState Load (0.3ms)[0m  [1m[34mSELECT "states".* FROM "states" WHERE "states"."id" = $1 LIMIT $2[0m  [["id", 34], ["LIMIT", 1]]
+  ↳ app/controllers/states_controller.rb:26:in `edit'
+  [1m[36mBoard Load (0.2ms)[0m  [1m[34mSELECT "boards".* FROM "boards" WHERE "boards"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/states_controller.rb:28:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering states/edit.html.erb within layouts/application
+  Rendered states/_form.html.erb (Duration: 1.8ms | Allocations: 584)
+  Rendered states/edit.html.erb within layouts/application (Duration: 2.1ms | Allocations: 647)
+  Rendered layouts/_navbar.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layouts/_footer.html.erb (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1064)
+Completed 200 OK in 8ms (Views: 3.9ms | ActiveRecord: 0.5ms | Allocations: 2126)
+
+

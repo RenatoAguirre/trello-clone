@@ -14,10 +14,11 @@ class BoardsController < ApplicationController
     def create
       @board = Board.new(board_params)
       if @board.save
+        create_basic_states
         redirect_to @board, notice: 'Board was successfully created.'
       else
         render :new
-      end
+      end    
     end
   
     def edit
@@ -46,5 +47,11 @@ class BoardsController < ApplicationController
   
     def board_params
       params.require(:board).permit(:name, :description, :user_id) # List all attributes allowed for mass assignment
+    end
+
+    def create_basic_states
+      State.new(name: "To Do", board_id: @board.id).save
+      State.new(name: "In Progress", board_id: @board.id).save
+      State.new(name: "Done", board_id: @board.id).save
     end
   end
