@@ -6,5 +6,4 @@ class Task < ApplicationRecord
   has_many :assigned_users, through: :task_assignments, source: :user
 
   validates :title, presence: true
-  validates :description
 end
