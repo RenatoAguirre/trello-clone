@@ -1,12 +1,8 @@
-
-  <h1><%= @board.name %></h1>
-  <p><%= @board.description %></p>
-
-
-  <div class="row">
-    <% @board.states.each do |state| %>
-      <div class="col">
-        <%= render 'states/state', state: state %>
-        <%= link_to 'add task', new_board_state_task_path(@board, state)%>
-      </div>
-    <% end %>
+<h1><%= @board.name %></h1>
+<p><%= @board.description %></p>
+<div class="row">
+  <% @board.states.each do |state| %>
+    <div class="col">
+      <%= render 'states/state', state: state %>
+    </div>
+  <% end %>
