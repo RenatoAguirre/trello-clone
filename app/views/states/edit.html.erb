@@ -1,3 +1,6 @@
-<h1> Edit state </h1>
-<%= render 'form', state: @state %>
-<%= link_to 'Destroy', board_state_path(@board, @state), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger' %>
+<div class="container">
+  <h1> Edit state </h1>
+  <%= render 'form', state: @state %>
+  <%= link_to 'Destroy', board_state_path(@board, @state), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger' %>
+  <%= link_to 'Back', board_path(@board), class: 'btn btn-secondary' %>
+</div>

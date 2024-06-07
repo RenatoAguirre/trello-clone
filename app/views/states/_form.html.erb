@@ -3,8 +3,6 @@
     <%= form.label :name %>
     <%= form.text_area :name, class: "form-control", required: true %>
     <%= form.hidden_field :board_id, value: @board.id %>
-
-   
   </div>
-     <%= form.submit "Submit", class: "btn btn-primary" %>
+  <%= form.submit "Submit", class: "btn btn-primary" %>
 <% end %>

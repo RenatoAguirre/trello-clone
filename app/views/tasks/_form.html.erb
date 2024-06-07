@@ -3,10 +3,8 @@
     <%= form.label :title %>
     <%= form.text_area :title, class: "form-control", required: true %>
     <%= form.text_area :description, class: "form-control", required: false%>
-    
     <%= form.hidden_field :state_id, value: @state.id %>
-
-   
   </div>
-     <%= form.submit "Submit", class: "btn btn-primary" %>
+  <%= form.submit "Submit", class: "btn btn-primary" %>
+  <%= link_to 'Back', url_for(:back), class: "btn btn-secondary" %>
 <% end %>
