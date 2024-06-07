@@ -1,19 +1,13 @@
-<h1>All Boards</h1>
-<%= link_to 'New Board', new_board_path, class: 'btn btn-success mb-3' %>
-<div class="row">
-  <% @boards.each do |board| %>
-    <div class="col-md-4 mb-4">
-      <div class="card h-100">
-        <div class="card-body">
-          <h5 class="card-title"><%= board.name %></h5>
-          <p class="card-text"><%= board.description %></p>
-        </div>
-        <div class="card-footer">
-          <%= link_to 'Show', board_path(board), class: 'btn btn-info' %>
-          <%= link_to 'Edit', edit_board_path(board), class: 'btn btn-warning' %>
-          <%= link_to 'Destroy', board_path(board), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger' %>
-        </div>
-      </div>
+<div class="container h-50">
+  <h3>Boards</h3>
+  <div class="mt-5 row gap-2 h-50">
+    <div class="col">
+      <%= link_to "Create new board", new_board_path, class: 'd-flex justify-content-center card btn bg-transparent h-100 text-center' %>
     </div>
-  <% end %>
+    <% @boards.each do |board| %>
+      <div class="col">
+        <%= link_to board.name, board_path(board), class: "d-flex justify-content-center card btn bg-transparent h-100"%>
+      </div>
+    <% end %>
+  </div>
 </div>

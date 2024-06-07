@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Boards Manager</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-
-  <!-- Stylesheets -->
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-  <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' if defined?(Webpacker) %>
-
-  <!-- JavaScript -->
-  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' if defined?(Webpacker) %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', type: "module"%>
-</head>
-<body class="d-flex flex-column min-vh-100">
-  <%= render 'layouts/navbar' %>
-
-  <main class="flex-grow-1">
-    <div class="container mt-4">
+  <head>
+    <title>Boards Manager</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <!-- Stylesheets -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' if defined?(Webpacker) %>
+    <!-- JavaScript -->
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' if defined?(Webpacker) %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', type: "module"%>
+  </head>
+  <body class="d-flex flex-column align-content-stretch vh-100">
+    <%= render 'layouts/navbar' %>
+    <main class="p-4" style="height: 80vh;">
       <%= yield %>
-    </div>
-  </main>
-
-  <footer class="mt-auto bg-light text-center">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2024 Boards Manager: All rights reserved.
-    </div>
-  </footer>
-</body>
+    </main>
+    <footer class="mt-auto bg-light text-cente">
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2024 Boards Manager: All rights reserved.
+      </div>
+    </footer>
+  </body>
 </html>

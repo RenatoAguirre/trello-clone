@@ -11,20 +11,18 @@
         </ul>
       </div>
     <% end %>
-
     <div class="form-group">
       <%= form.label :name, class: 'form-label' %>
       <%= form.text_field :name, class: 'form-control', id: 'board_name', placeholder: 'Enter board name' %>
     </div>
-
     <div class="form-group">
       <%= form.label :description, class: 'form-label' %>
       <%= form.text_area :description, rows: 5, class: 'form-control', id: 'board_description', placeholder: 'Enter board description' %>
     </div>
-
     <div class="actions mt-3">
       <%= form.submit 'Update Board', class: 'btn btn-primary' %>
       <%= link_to 'Cancel', board_path(@board), class: 'btn btn-secondary' %>
+      <%= link_to 'Destroy', board_path(@board), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger' %>
     </div>
   <% end %>
 </div>
