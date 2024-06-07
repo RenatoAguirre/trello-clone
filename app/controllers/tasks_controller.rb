@@ -27,8 +27,12 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+
     if params[:state_id]
       @state = State.find(params[:state_id])
+    end
+    if params[:board_id]
+      @board = Board.find(params[:board_id])
     end
   end
 

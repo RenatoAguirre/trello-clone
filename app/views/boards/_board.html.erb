@@ -1,8 +1,17 @@
-<h1><%= @board.name %></h1>
-<p><%= @board.description %></p>
+<nav class="navbar bg-light mb-3">
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <%= @board.name %>
+    </a>
+  </div>
+</nav>
 <div class="row">
   <% @board.states.each do |state| %>
     <div class="col">
       <%= render 'states/state', state: state %>
     </div>
   <% end %>
+  <div class="col">
+    <%= link_to 'add state', new_board_state_path(@board), method: :post, class: 'btn btn-light' %>
+  </div>
+</div>

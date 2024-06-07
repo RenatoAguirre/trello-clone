@@ -1,5 +1,1 @@
-<li class="list-group-item">
-<%= task.title %>
-<%= link_to 'Edit', edit_board_state_task_path(@board, task.state_id, task) %>
-<%= link_to 'Destroy', board_state_task_path(@board, task.state_id, task ), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' }%>
-</li>
+<%= link_to task.title, edit_board_state_task_path(@board, task.state_id, task), class: "card body btn bg-transparent ml-1 mr-1", style: "text-align:left" %>

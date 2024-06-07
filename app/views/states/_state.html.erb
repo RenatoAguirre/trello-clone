@@ -1,20 +1,18 @@
-<div class="card mb-3">
-  <div class="card-header d-flex justify-content-between align-items-center">
+<div class="card mb-3 p-1 bg-">
+  <div class="d-grid d-flex justify-content-between align-items-center mb-1 p-2">
     <span><%= state.name %></span>
-    <%= link_to  edit_board_state_path(@board, state), class: "link-dark" do %>
+    <%= link_to edit_board_state_path(@board, state), method: :post, class: "link-dark" do %>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
         <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
       </svg>
     <% end %>
   </div>
-  <ul class="list-group list-group-flush">
+  <div class="d-grid gap-2 ml-1 mr-1">
     <% state.tasks.each do |task| %>
-      <li class="list-group-item">
-        <%= render 'tasks/task', task: task %>
-      </li>
+      <%= render 'tasks/task', task: task %>
     <% end %>
-  </ul>
-  <div class="card-footer p-2">
+  </div>
+  <div class="d-grid justify-content-start">
     <%= link_to new_board_state_task_path(@board, state), method: :post, class: "btn bg-transparent rounded-pill" do %>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
         <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>

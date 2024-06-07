@@ -11,6 +11,7 @@
         <div class="card-footer">
           <%= link_to 'Show', board_path(board), class: 'btn btn-info' %>
           <%= link_to 'Edit', edit_board_path(board), class: 'btn btn-warning' %>
+          <%= link_to 'Destroy', board_path(board), data: {turbo_method: :delete, turbo_confirm: 'Are you sure?' } , class: 'btn btn-danger' %>
         </div>
       </div>
     </div>
