@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'teams/index'
+  get 'teams/show'
+  get 'teams/new'
+  get 'teams/create'
+  get 'teams/join'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -18,5 +23,8 @@ Rails.application.routes.draw do
     end
   end
   # config/routes.rb
+  resources :teams do
+    post 'join', on: :member
+  end
 
 end
