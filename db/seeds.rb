@@ -25,43 +25,37 @@ State.delete_all
 Board.delete_all
 User.delete_all
 
+team1 = Team.create!(name: 'Team One', description: 'This is the first team.')
+team2 = Team.create!(name: 'Team Two', description: 'This is the second team.')
 
 # Create users
-3.times do |i|
-  User.create!(
-    name: "user#{i+1}",
-    email: "user#{i+1}@example.com",
-    password: '123456',  
-    password_confirmation: '123456'
-  )
-end
+user1 = User.create!(
+  name: 'namee1',
+  email: 'user1@example.com',
+  password: 'user1@example.com',
+  team: team1
+)
+
+user2 = User.create!(
+  name: 'namee2',
+  email: 'user2@example.com',
+  password: 'user2@example.com',
+  team: team2
+)
 
 # Create boards with random users
-3.times do |i|
-  random_user = User.order("RANDOM()").first
-  board = random_user.boards.create!(
-    name: "Board #{i+1} for #{random_user.name}",
-    description: "Description for Board #{i+1} created by #{random_user.name}"
-  )
-  
-  # Create states for each board
-  5.times do |j|
-    state = board.states.create!(
-      name: "State #{j+1} for #{board.name}",
-    )
-    
-    # Create tasks for each state
-    5.times do |k|
-      state.tasks.create!(
-        title: "Task #{k+1} for #{state.name}",
-        description: "Description for Task #{k+1} of #{state.name}"
-      )
-    end
-  end
-end
+Board.create!(
+  user: user1,
+  team: team1,
+  name: 'Board One',
+  description: 'This is the first board.',
+)
 
-tags = ['Urgente', 'Importante', 'Opcional'].map do |tag_name|
-  Tag.create(name: tag_name, color: "red")
-end
+Board.create!(
+  user: user2,
+  team: team2,
+  name: 'Board Two',
+  description: 'This is the second board.',
+)
 
 puts "Data seeded successfully!"
