@@ -11,6 +11,9 @@ class BoardsController < ApplicationController
   
     def show
       @board = Board.find(params[:id])
+      if !is_user_allowed_to_see_board(current_user.id, @board.id)
+        redirect_to boards_path, notice: "You're not allowed to see this board."
+      end
     end
   
     def new
@@ -33,8 +36,11 @@ class BoardsController < ApplicationController
       end    
     end
   
-    def edit
+    def edit 
       @board = Board.find(params[:id])
+      if !is_user_allowed_to_see_board(current_user.id, @board.id)
+        redirect_to boards_path, notice: "You're not allowed to see this board."
+      end
     end
   
     def update
@@ -96,8 +102,14 @@ class BoardsController < ApplicationController
       return team_board_dicts
     end
 
-
     def is_name_valid_within_team(name, team_id)
       return Board.where(team_id: team_id, name: name).empty?
+    end
+
+    def is_user_allowed_to_see_board(user_id, board_id)
+      board = Board.find(board_id)
+      team_id = board.team_id
+      team_member = TeamMember.where(user_id: user_id, team_id: team_id)
+      return !team_member.empty?
     end
   end 
