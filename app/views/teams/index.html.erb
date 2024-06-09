@@ -1,11 +1,13 @@
-<div class="container">
+<div class="container ">
   <h1>Teams</h1>
-  <%= link_to 'New Team', new_team_path %>
+  <div class=" d-flex justify-content-end mb-2">
+    <%= link_to 'Create your own Team!', new_team_path, class: "btn btn-primary" %>
+  </div>
   <ul class="list-group">
     <% @teams.each do |team| %>
       <li class="list-group-item">
-        <%= link_to team.name, team_path(team) %>
-        <div class="d-flex">
+        <div class="d-flex justify-content-between mb-2">
+          <h5><%= link_to team.name, team_path(team), class: "link-dark" %></h5>
           <% if user_signed_in? && current_user.teams.include?(team) %>
             <%= button_to "Leave", leave_team_path(team), method: :delete, class: "btn btn-secondary" %>
           <% else %>
