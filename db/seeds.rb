@@ -41,22 +41,21 @@ user2 = User.create!(
   password: 'user2@example.com',
 )
 
-TeamMember.create!(user: user1, team: team1)
-TeamMember.create!(user: user2, team: team2)
 
 # Create boards with random users
 Board.create!(
   user: user1,
-  team: team1,
+  team: user1.teams.first,
   name: 'Board One',
   description: 'This is the first board.',
 )
 
 Board.create!(
   user: user2,
-  team: team2,
+  team: user2.teams.first,
   name: 'Board Two',
   description: 'This is the second board.',
 )
+
 
 puts "Data seeded successfully!"
