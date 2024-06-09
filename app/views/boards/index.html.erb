@@ -1,13 +1,21 @@
-<div class="container h-50">
-  <h3>Boards</h3>
-  <div class="mt-5 row gap-2 h-50">
-    <div class="col">
-      <%= link_to "Create new board", new_board_path, class: 'd-flex justify-content-center card btn bg-transparent h-100 text-center' %>
-    </div>
-    <% @boards.each do |board| %>
-      <div class="col">
-        <%= link_to board.name, board_path(board), class: "d-flex justify-content-center card btn bg-transparent h-100"%>
+<div class="container h-100">
+  <h3 class="mb-0">Boards</h3>
+  <hr>
+  <div class="mt-5 row gap-2 h-100">
+    <% @team_board_dict.each do |team_name, boards| %>
+      <div class="row">
+        <h3 class="align-self-start"><%=team_name%></h3>
+        <div class="col-4 h-75">
+          <%= link_to "New board for this team", new_board_path, class: 'd-flex justify-content-center card btn bg-transparent h-100 text-center' %>
+        </div>
+        <% if boards.length > 0 %>
+          <% boards.each do |board| %>
+            <div class="col-4 h-75">
+              <%= link_to board.name, board_path(board), class: 'd-flex justify-content-center card btn bg-transparent h-100 text-center' %>
+            </div>
+          <%end%>
+        <%end%>
       </div>
-    <% end %>
+    <%end %>
   </div>
 </div>
