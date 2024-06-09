@@ -22,7 +22,7 @@ class BoardsController < ApplicationController
       if @board.save
         create_basic_states
         respond_to do |format|
-          format.html { redirect_to boards_path, notice: 'Board was successfully created.' }
+          format.html { redirect_to board_path(@board), notice: 'Board was successfully created.' }
           format.json { render json: @board, status: :created }
         end
       else
