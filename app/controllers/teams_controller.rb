@@ -6,6 +6,7 @@ class TeamsController < ApplicationController
 
   def show
     @team = Team.find(params[:id])
+    @boards = @team.boards
   end
 
   def new
