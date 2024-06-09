@@ -15,6 +15,7 @@ class TeamsController < ApplicationController
   def create
     @team = Team.new(team_params)
     if @team.save
+      TeamMember.create!(user: current_user, team: @team)
       redirect_to @team, notice: 'Team was successfully created.'
     else
       render :new
@@ -28,6 +29,16 @@ class TeamsController < ApplicationController
       redirect_to teams_path, notice: "You have joined the team."
     else 
       redirect_to teams_path, notice: "You've already joined part of that team."
+    end
+  end
+
+  def leave
+    @team = Team.find(params[:id])
+    if current_user.teams.include?(@team)
+      TeamMember.find_by(user: current_user, team: @team).destroy
+      redirect_to teams_path, notice: "You have left the team."
+    else
+      redirect_to teams_path, notice: "You're not part of that team."
     end
   end
 

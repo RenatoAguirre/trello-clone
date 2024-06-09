@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # config/routes.rb
   resources :teams do
     post 'join', on: :member
+    delete 'leave', on: :member
   end
 
 end

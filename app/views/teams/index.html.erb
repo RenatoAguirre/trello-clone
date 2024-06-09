@@ -4,7 +4,8 @@
   <% @teams.each do |team| %>
     <li>
       <%= link_to team.name, team_path(team) %>
-      <%= button_to 'Join', join_team_path(team), method: :post %>
+      <%= button_to "Join", join_team_path(team), method: :post %>
+      <%= button_to "leave", leave_team_path(team), method: :delete %>
     </li>
   <% end %>
 </ul>
