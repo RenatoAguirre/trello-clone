@@ -2,7 +2,8 @@ class BoardsController < ApplicationController
     before_action :authenticate_user!, except: [:index]
     def index
       if !user_signed_in?
-        @boards = Board.all
+        #the last user its a dummy user created in the seed file, so no real user
+        @team_board_dict = get_team_board_dict_from_user(User.last.id)
       else
         @team_board_dict = get_team_board_dict_from_user(current_user.id)
       end
