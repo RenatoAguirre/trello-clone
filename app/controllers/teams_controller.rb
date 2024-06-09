@@ -22,8 +22,13 @@ class TeamsController < ApplicationController
   end
 
   def join
-    current_user.update(team: @team)
-    redirect_to teams_path, notice: 'You have joined the team.'
+    @team = Team.find(params[:id])
+    if !current_user.teams.include?(@team)
+      TeamMember.create!(user: current_user, team: @team)
+      redirect_to teams_path, notice: "You have joined the team."
+    else 
+      redirect_to teams_path, notice: "You've already joined part of that team."
+    end
   end
 
   private  
