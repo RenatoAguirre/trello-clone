@@ -34,7 +34,9 @@ class TeamsController < ApplicationController
 
   def leave
     @team = Team.find(params[:id])
-    if current_user.teams.include?(@team)
+    if @team == current_user.teams.last
+      redirect_to teams_path, notice: "You can't leave your default team."
+    elsif current_user.teams.include?(@team)
       TeamMember.find_by(user: current_user, team: @team).destroy
       redirect_to teams_path, notice: "You have left the team."
     else
