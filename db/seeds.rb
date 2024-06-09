@@ -33,15 +33,16 @@ user1 = User.create!(
   name: 'namee1',
   email: 'user1@example.com',
   password: 'user1@example.com',
-  team: team1
 )
 
 user2 = User.create!(
   name: 'namee2',
   email: 'user2@example.com',
   password: 'user2@example.com',
-  team: team2
 )
+
+TeamMember.create!(user: user1, team: team1)
+TeamMember.create!(user: user2, team: team2)
 
 # Create boards with random users
 Board.create!(
