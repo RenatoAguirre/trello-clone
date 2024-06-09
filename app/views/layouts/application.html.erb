@@ -13,13 +13,15 @@
   </head>
   <body class="d-flex flex-column min-vh-100">
     <%= render 'layouts/navbar' %>
-    <main class="p-4 min-vh-100 overflow-auto">
-      <%= yield %>
-    </main>
     <% flash.each do |type, msg| %>
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <%= msg %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+        </button>
       </div>
     <% end %>
+    <main class="p-4 min-vh-100 overflow-auto">
+      <%= yield %>
+    </main>
   </body>
 </html>
