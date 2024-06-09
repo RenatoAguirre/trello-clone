@@ -5,13 +5,13 @@
     <% @team_board_dict.each do |team_name, boards| %>
       <div class="row">
         <h3 class="align-self-start"><%=team_name%></h3>
-        <div class="col-auto h-75">
-          <%=render "board_card", name: "New board for this team"%>
+        <div class="col-auto h-50">
+          <%=render "board_card", name: "New board for this team", link: new_board_path%>
         </div>
         <% if boards.length > 0 %>
           <% boards.each do |board| %>
-            <div class="col-auto h-75">
-              <%=render "board_card", name: board.name%>
+            <div class="col-auto h-50">
+              <%=render "board_card", name: board.name, link: board_path(board)%>
             </div>
           <%end%>
         <%end%>

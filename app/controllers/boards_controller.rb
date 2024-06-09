@@ -22,7 +22,7 @@ class BoardsController < ApplicationController
         create_basic_states
         redirect_to boards_url, notice: 'Board was successfully created.'
       else
-        render :new
+        render :new, notice: 'Board was not created.'
       end    
     end
   

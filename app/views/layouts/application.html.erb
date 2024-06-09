@@ -11,10 +11,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' if defined?(Webpacker) %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload', type: "module"%>
   </head>
-  <body class="d-flex flex-column align-content-stretch vh-100">
+  <body class="d-flex flex-column vh-100">
     <%= render 'layouts/navbar' %>
-    <main class="p-4  overflow-auto">
+    <main class="p-4 vh-100 overflow-auto">
       <%= yield %>
     </main>
+    <% flash.each do |type, msg| %>
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <%= msg %>
+      </div>
+    <% end %>
   </body>
 </html>
