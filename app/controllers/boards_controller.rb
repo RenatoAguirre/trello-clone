@@ -18,7 +18,9 @@ class BoardsController < ApplicationController
   
     def create
       @board = Board.new(board_params)
-      if @board.save
+      if !is_name_valid_within_team(@board.name, @board.team_id)
+        redirect_to new_board_path, notice: 'Board name already exists in the team.'
+      elsif @board.save
         create_basic_states
         redirect_to boards_url, notice: 'Board was successfully created.'
       else
@@ -88,5 +90,9 @@ class BoardsController < ApplicationController
       team_board_dicts = team_ids.map { |team_id| [team_names[team_id], Board.where(team_id: team_id)]}.to_h
       return team_board_dicts
     end
-    
+
+
+    def is_name_valid_within_team(name, team_id)
+      return Board.where(team_id: team_id, name: name).empty?
+    end
   end 
