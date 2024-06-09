@@ -1,16 +1,16 @@
-<div class="container h-100">
+<div class="container min-h-100">
   <h3 class="mb-0">Boards</h3>
   <hr>
-  <div class="mt-5 row gap-2 h-100">
+  <div class="mt-5 row gap-2">
     <% @team_board_dict.each do |team_name, boards| %>
-      <div class="row">
+      <div class="row mt-1">
         <h3 class="align-self-start"><%=team_name%></h3>
-        <div class="col-auto h-50">
+        <div class="col-auto mb-4">
           <%=render "board_card", name: "New board for this team", link: new_board_path%>
         </div>
         <% if boards.length > 0 %>
           <% boards.each do |board| %>
-            <div class="col-auto h-50">
+            <div class="col-auto mb-4">
               <%=render "board_card", name: board.name, link: board_path(board)%>
             </div>
           <%end%>

@@ -18,13 +18,17 @@ class BoardsController < ApplicationController
   
     def create
       @board = Board.new(board_params)
-      if !is_name_valid_within_team(@board.name, @board.team_id)
-        redirect_to new_board_path, notice: 'Board name already exists in the team.'
-      elsif @board.save
+      if @board.save
         create_basic_states
-        redirect_to boards_url, notice: 'Board was successfully created.'
+        respond_to do |format|
+          format.html { redirect_to boards_path, notice: 'Board was successfully created.' }
+          format.json { render json: @board, status: :created }
+        end
       else
-        render :new, notice: 'Board was not created.'
+        respond_to do |format|
+          format.html { render :new, status: :unprocessable_entity}
+          format.json { render json: @board.errors, status: :unprocessable_entity }
+        end
       end    
     end
   

@@ -1,4 +1,4 @@
- <%= form_with model: @board, local: true, html: { class: 'needs-validation', novalidate: "" } do |form| %>
+ <%= form_with model: @board, remote: true do |form| %>
   <% if @board.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <h4 class="alert-heading">Please correct the following errors:</h4>
