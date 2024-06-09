@@ -20,7 +20,7 @@ class BoardsController < ApplicationController
       @board = Board.new(board_params)
       if @board.save
         create_basic_states
-        redirect_to @board, notice: 'Board was successfully created.'
+        redirect_to boards_url, notice: 'Board was successfully created.'
       else
         render :new
       end    
@@ -51,7 +51,7 @@ class BoardsController < ApplicationController
     private
   
     def board_params
-      params.require(:board).permit(:name, :description, :user_id) # List all attributes allowed for mass assignment
+      params.require(:board).permit(:name, :description, :user_id, :team_id) # List all attributes allowed for mass assignment
     end
 
     def create_basic_states
