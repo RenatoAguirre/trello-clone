@@ -1,14 +1,21 @@
-<h1>Teams</h1>
-<%= link_to 'New Team', new_team_path %>
-<ul>
-  <% @teams.each do |team| %>
-    <li>
-      <%= link_to team.name, team_path(team) %>
-      <%= button_to "Join", join_team_path(team), method: :post %>
-      <%= button_to "leave", leave_team_path(team), method: :delete %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <h1>Teams</h1>
+  <%= link_to 'New Team', new_team_path %>
+  <ul class="list-group">
+    <% @teams.each do |team| %>
+      <li class="list-group-item">
+        <%= link_to team.name, team_path(team) %>
+        <div class="d-flex">
+          <% if current_user.teams.include?(team) %>
+            <%= button_to "Leave", leave_team_path(team), method: :delete, class: "btn btn-secondary" %>
+          <% else %>
+            <%= button_to "Join", join_team_path(team), method: :post, class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>
 <% flash.each do |type, msg| %>
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
     <%= msg %>
