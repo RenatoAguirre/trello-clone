@@ -1,5 +1,6 @@
 class BoardsController < ApplicationController
     before_action :authenticate_user!, except: [:index]
+
     def index
       if !user_signed_in?
         #the last user its a dummy user created in the seed file, so no real user
@@ -60,7 +61,7 @@ class BoardsController < ApplicationController
         format.json { head :no_content }
       end
     end
-  
+
     private
   
     def board_params
@@ -80,12 +81,6 @@ class BoardsController < ApplicationController
         boards.concat(Board.where(team_id: team.team_id))
       end
       return boards
-    end
-
-    def get_team_ids_from_user(c_user_id) 
-      #returns an array of team ids
-      team_ids = TeamMember.where(user_id: c_user_id).map { |team_member| team_member.team_id}
-      return team_ids
     end
 
     def get_team_names_from_user(user_id) 

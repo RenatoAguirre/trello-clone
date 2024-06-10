@@ -19,7 +19,13 @@
   <div class="row mt-5">
     <h5>Boards</h5>
     <div class="col-auto mb-4">
-      <%=render "boards/board_card", name: "New board for this team", link: new_board_path%>
+      <% if @team.users.include?(current_user) %>
+        <%= render "boards/board_card", name: "New board for this team", link: new_board_path(:team_id => get_team_id_from_name(@team.name, current_user.id) )%>
+      <%else%>
+        <div class="alert alert-warning" role="alert">
+          You are not a member of this team. You can't see this teams boards!
+        </div>
+      <% end %>
     </div>
     <% @boards.each do |board| %>
       <div class="col-auto mb-4">

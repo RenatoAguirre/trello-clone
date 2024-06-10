@@ -17,10 +17,17 @@
     <%= form.label :description, class: 'form-label' %>
     <%= form.text_area :description, rows: 5, class: 'form-control', id: 'board_description', placeholder: 'Enter board description' %>
   </div>
-  <div class="form-group">
-    <%= form.label :team_id, 'Team', class: 'form-label' %>
-    <%= form.collection_select :team_id, current_user.teams, :id, :name, { prompt: "Choose a team" }, { class: 'form-control' } %>
-  </div>
+  <% if params[:team_id]%>
+    <div>
+      <%= form.label :team_id, 'Team', class: 'form-label' %>
+      <%= form.collection_select :team_id, current_user.teams, :id, :name, { prompt: "Choose a team", :selected => params[:team_id] }, { class: 'form-control' } %>
+    </div>
+  <%else%>
+    <div class="form-group">
+      <%= form.label :team_id, 'Team', class: 'form-label' %>
+      <%= form.collection_select :team_id, current_user.teams, :id, :name, { prompt: "Choose a team" }, { class: 'form-control' } %>
+    </div>
+  <% end %>
   <div class="form-group">
     <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
