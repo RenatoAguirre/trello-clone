@@ -27,10 +27,12 @@
         </div>
       <% end %>
     </div>
-    <% @boards.each do |board| %>
-      <div class="col-auto mb-4">
-        <%=render "boards/board_card", name: board.name, link: board_path(board)%>
-      </div>
+    <% if @team.users.include?(current_user) %>
+      <% @boards.each do |board| %>
+        <div class="col-auto mb-4">
+          <%=render "boards/board_card", name: board.name, link: board_path(board)%>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
