@@ -6,7 +6,9 @@
       <div class="row mt-1">
         <h3 class="align-self-start"><%=team_name%></h3>
         <div class="col-auto mb-4">
-          <%= render "board_card", name: "New board for this team", link: new_board_path(:team_id => get_team_id_from_name(team_name, current_user.id) )%>
+          <%if current_user%>
+            <%= render "board_card", name: "New board for this team", link: new_board_path(:team_id => get_team_id_from_name(team_name, current_user.id) )%>
+          <%end%>
         </div>
         <% if boards.length > 0 %>
           <% boards.each do |board| %>
