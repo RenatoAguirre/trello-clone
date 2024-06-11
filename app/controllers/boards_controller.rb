@@ -15,6 +15,7 @@ class BoardsController < ApplicationController
       if !is_user_allowed_to_see_board(current_user.id, @board.id)
         redirect_to boards_path, notice: "You're not allowed to see this board."
       end
+      @board_states = @board.states.order(created_at: :asc)
     end
   
     def new

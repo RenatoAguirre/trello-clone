@@ -1,6 +1,6 @@
 <div class="card mb-3 p-1 bg-">
-  <div class="d-grid d-flex justify-content-between align-items-center mb-1 p-2">
-    <span><%= state.name %></span>
+  <div data-controller="states" class="d-grid d-flex justify-content-between align-items-center mb-1 p-2">
+    <span><input data-action="blur->states#changeName keydown.enter->states#changeName" class="form-control border-0" type="text" id="<%= @board.id %>-<%= state.id %>"  value="<%= state.name %>" ></span>
     <%= link_to edit_board_state_path(@board, state), method: :post, class: "link-dark" do %>
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
         <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>

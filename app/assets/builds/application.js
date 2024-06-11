@@ -8237,8 +8237,295 @@ var hello_controller_default = class extends Controller {
   }
 };
 
+// node_modules/@rails/request.js/src/fetch_response.js
+var FetchResponse2 = class {
+  constructor(response) {
+    this.response = response;
+  }
+  get statusCode() {
+    return this.response.status;
+  }
+  get redirected() {
+    return this.response.redirected;
+  }
+  get ok() {
+    return this.response.ok;
+  }
+  get unauthenticated() {
+    return this.statusCode === 401;
+  }
+  get unprocessableEntity() {
+    return this.statusCode === 422;
+  }
+  get authenticationURL() {
+    return this.response.headers.get("WWW-Authenticate");
+  }
+  get contentType() {
+    const contentType = this.response.headers.get("Content-Type") || "";
+    return contentType.replace(/;.*$/, "");
+  }
+  get headers() {
+    return this.response.headers;
+  }
+  get html() {
+    if (this.contentType.match(/^(application|text)\/(html|xhtml\+xml)$/)) {
+      return this.text;
+    }
+    return Promise.reject(new Error(`Expected an HTML response but got "${this.contentType}" instead`));
+  }
+  get json() {
+    if (this.contentType.match(/^application\/.*json$/)) {
+      return this.responseJson || (this.responseJson = this.response.json());
+    }
+    return Promise.reject(new Error(`Expected a JSON response but got "${this.contentType}" instead`));
+  }
+  get text() {
+    return this.responseText || (this.responseText = this.response.text());
+  }
+  get isTurboStream() {
+    return this.contentType.match(/^text\/vnd\.turbo-stream\.html/);
+  }
+  async renderTurboStream() {
+    if (this.isTurboStream) {
+      if (window.Turbo) {
+        await window.Turbo.renderStreamMessage(await this.text);
+      } else {
+        console.warn("You must set `window.Turbo = Turbo` to automatically process Turbo Stream events with request.js");
+      }
+    } else {
+      return Promise.reject(new Error(`Expected a Turbo Stream response but got "${this.contentType}" instead`));
+    }
+  }
+};
+
+// node_modules/@rails/request.js/src/request_interceptor.js
+var RequestInterceptor = class {
+  static register(interceptor) {
+    this.interceptor = interceptor;
+  }
+  static get() {
+    return this.interceptor;
+  }
+  static reset() {
+    this.interceptor = void 0;
+  }
+};
+
+// node_modules/@rails/request.js/src/lib/utils.js
+function getCookie(name) {
+  const cookies = document.cookie ? document.cookie.split("; ") : [];
+  const prefix = `${encodeURIComponent(name)}=`;
+  const cookie = cookies.find((cookie2) => cookie2.startsWith(prefix));
+  if (cookie) {
+    const value = cookie.split("=").slice(1).join("=");
+    if (value) {
+      return decodeURIComponent(value);
+    }
+  }
+}
+function compact(object) {
+  const result = {};
+  for (const key in object) {
+    const value = object[key];
+    if (value !== void 0) {
+      result[key] = value;
+    }
+  }
+  return result;
+}
+function metaContent(name) {
+  const element = document.head.querySelector(`meta[name="${name}"]`);
+  return element && element.content;
+}
+function stringEntriesFromFormData(formData) {
+  return [...formData].reduce((entries, [name, value]) => {
+    return entries.concat(typeof value === "string" ? [[name, value]] : []);
+  }, []);
+}
+function mergeEntries(searchParams, entries) {
+  for (const [name, value] of entries) {
+    if (value instanceof window.File) continue;
+    if (searchParams.has(name) && !name.includes("[]")) {
+      searchParams.delete(name);
+      searchParams.set(name, value);
+    } else {
+      searchParams.append(name, value);
+    }
+  }
+}
+
+// node_modules/@rails/request.js/src/fetch_request.js
+var FetchRequest2 = class {
+  constructor(method, url, options = {}) {
+    this.method = method;
+    this.options = options;
+    this.originalUrl = url.toString();
+  }
+  async perform() {
+    try {
+      const requestInterceptor = RequestInterceptor.get();
+      if (requestInterceptor) {
+        await requestInterceptor(this);
+      }
+    } catch (error2) {
+      console.error(error2);
+    }
+    const response = new FetchResponse2(await window.fetch(this.url, this.fetchOptions));
+    if (response.unauthenticated && response.authenticationURL) {
+      return Promise.reject(window.location.href = response.authenticationURL);
+    }
+    const responseStatusIsTurboStreamable = response.ok || response.unprocessableEntity;
+    if (responseStatusIsTurboStreamable && response.isTurboStream) {
+      await response.renderTurboStream();
+    }
+    return response;
+  }
+  addHeader(key, value) {
+    const headers = this.additionalHeaders;
+    headers[key] = value;
+    this.options.headers = headers;
+  }
+  sameHostname() {
+    if (!this.originalUrl.startsWith("http:")) {
+      return true;
+    }
+    try {
+      return new URL(this.originalUrl).hostname === window.location.hostname;
+    } catch (_) {
+      return true;
+    }
+  }
+  get fetchOptions() {
+    return {
+      method: this.method.toUpperCase(),
+      headers: this.headers,
+      body: this.formattedBody,
+      signal: this.signal,
+      credentials: this.credentials,
+      redirect: this.redirect
+    };
+  }
+  get headers() {
+    const baseHeaders = {
+      "X-Requested-With": "XMLHttpRequest",
+      "Content-Type": this.contentType,
+      Accept: this.accept
+    };
+    if (this.sameHostname()) {
+      baseHeaders["X-CSRF-Token"] = this.csrfToken;
+    }
+    return compact(
+      Object.assign(baseHeaders, this.additionalHeaders)
+    );
+  }
+  get csrfToken() {
+    return getCookie(metaContent("csrf-param")) || metaContent("csrf-token");
+  }
+  get contentType() {
+    if (this.options.contentType) {
+      return this.options.contentType;
+    } else if (this.body == null || this.body instanceof window.FormData) {
+      return void 0;
+    } else if (this.body instanceof window.File) {
+      return this.body.type;
+    }
+    return "application/json";
+  }
+  get accept() {
+    switch (this.responseKind) {
+      case "html":
+        return "text/html, application/xhtml+xml";
+      case "turbo-stream":
+        return "text/vnd.turbo-stream.html, text/html, application/xhtml+xml";
+      case "json":
+        return "application/json, application/vnd.api+json";
+      default:
+        return "*/*";
+    }
+  }
+  get body() {
+    return this.options.body;
+  }
+  get query() {
+    const originalQuery = (this.originalUrl.split("?")[1] || "").split("#")[0];
+    const params = new URLSearchParams(originalQuery);
+    let requestQuery = this.options.query;
+    if (requestQuery instanceof window.FormData) {
+      requestQuery = stringEntriesFromFormData(requestQuery);
+    } else if (requestQuery instanceof window.URLSearchParams) {
+      requestQuery = requestQuery.entries();
+    } else {
+      requestQuery = Object.entries(requestQuery || {});
+    }
+    mergeEntries(params, requestQuery);
+    const query = params.toString();
+    return query.length > 0 ? `?${query}` : "";
+  }
+  get url() {
+    return this.originalUrl.split("?")[0].split("#")[0] + this.query;
+  }
+  get responseKind() {
+    return this.options.responseKind || "html";
+  }
+  get signal() {
+    return this.options.signal;
+  }
+  get redirect() {
+    return this.options.redirect || "follow";
+  }
+  get credentials() {
+    return this.options.credentials || "same-origin";
+  }
+  get additionalHeaders() {
+    return this.options.headers || {};
+  }
+  get formattedBody() {
+    const bodyIsAString = Object.prototype.toString.call(this.body) === "[object String]";
+    const contentTypeIsJson = this.headers["Content-Type"] === "application/json";
+    if (contentTypeIsJson && !bodyIsAString) {
+      return JSON.stringify(this.body);
+    }
+    return this.body;
+  }
+};
+
+// app/javascript/controllers/states_controller.js
+var states_controller_default = class extends Controller {
+  connect() {
+    console.log("Hello, Stimulus!", this.element);
+  }
+  async changeName(e) {
+    console.log(e.target.value);
+    console.log(this.element);
+    const ids = this.element.querySelector("input").id.split("-");
+    await this.changeNameRequest(ids[0], ids[1], e.target.value);
+  }
+  async changeNameRequest(boardId, stateId, name) {
+    const request = new FetchRequest2(
+      "PATCH",
+      `http://127.0.0.1:3000/states/${stateId}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+        },
+        body: JSON.stringify({
+          state: { name }
+        }),
+        responseKind: "json"
+      }
+    );
+    const response = await request.perform();
+    if (response.ok) {
+      const body = await response.text;
+      console.log(body);
+    }
+  }
+};
+
 // app/javascript/controllers/index.js
 application.register("hello", hello_controller_default);
+application.register("states", states_controller_default);
 
 // node_modules/@popperjs/core/lib/index.js
 var lib_exports = {};
@@ -9695,7 +9982,7 @@ function popperGenerator(generatorOptions) {
           resolve(state);
         });
       }),
-      destroy: function destroy() {
+      destroy: function destroy2() {
         cleanupModifierEffects();
         isDestroyed = true;
       }
