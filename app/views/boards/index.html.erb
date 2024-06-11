@@ -1,23 +1,32 @@
 <div class="container min-h-100">
-  <h3 class="mb-0">Your Boards</h3>
-  <hr>
-  <div class="mt-5 row gap-2">
-    <% @team_board_dict.each do |team_name, boards| %>
-      <div class="row mt-1">
-        <h3 class="align-self-start"><%=team_name%></h3>
-        <div class="col-auto mb-4">
-          <%if current_user%>
+  <%if current_user%>
+    <h3 class="mb-0">Your Boards</h3>
+    <hr>
+    <div class="mt-5 row gap-2">
+      <% @team_board_dict.each do |team_name, boards| %>
+        <div class="row mt-1">
+          <h3 class="align-self-start"><%=team_name%></h3>
+          <div class="col-auto mb-4">
             <%= render "board_card", name: "New board for this team", link: new_board_path(:team_id => get_team_id_from_name(team_name, current_user.id) )%>
+          </div>
+          <% if boards.length > 0 %>
+            <% boards.each do |board| %>
+              <div class="col-auto mb-4">
+                <%=render "board_card", name: board.name, link: board_path(board)%>
+              </div>
+            <%end%>
           <%end%>
         </div>
-        <% if boards.length > 0 %>
-          <% boards.each do |board| %>
-            <div class="col-auto mb-4">
-              <%=render "board_card", name: board.name, link: board_path(board)%>
-            </div>
-          <%end%>
-        <%end%>
-      </div>
-    <%end %>
+      <%end %>
+    <%else%>
+      <h3 class="mb-0">Boards</h3>
+      <% @boards.each do |board| %>
+        <div class="row mt-1">
+          <div class="col-auto mb-4">
+            <%=render "board_card", name: board.name, link: board_path(board)%>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
   </div>
 </div>

@@ -4,7 +4,7 @@ class BoardsController < ApplicationController
     def index
       if !user_signed_in?
         #the last user its a dummy user created in the seed file, so no real user
-        @team_board_dict = get_team_board_dict_from_user(User.last.id)
+        @boards= get_available_boards(User.last.id)
       else
         @team_board_dict = get_team_board_dict_from_user(current_user.id)
       end
@@ -75,8 +75,8 @@ class BoardsController < ApplicationController
       State.new(name: "Done", board_id: @board.id).save
     end
 
-    def get_available_boards #returns an array of boards
-      teams = TeamMember.where(user_id: current_user.id)
+    def get_available_boards(user_id) #returns an array of boards
+      teams = TeamMember.where(user_id: user_id)
       boards = []
       teams.each do |team|
         boards.concat(Board.where(team_id: team.team_id))
