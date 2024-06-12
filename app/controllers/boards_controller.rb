@@ -1,6 +1,6 @@
 class BoardsController < ApplicationController
     before_action :authenticate_user!, except: [:index]
-
+    helper_method :statesForTaskDropdown
     def index
       if !user_signed_in?
         #the last user its a dummy user created in the seed file, so no real user
@@ -108,4 +108,13 @@ class BoardsController < ApplicationController
       team_member = TeamMember.where(user_id: user_id, team_id: team_id)
       return !team_member.empty?
     end
+    
+    def statesForTaskDropdown(task_id)
+      task = Task.find(task_id)
+      board = Board.find(task.state.board_id)
+      states = board.states
+      states = board.states.reject { |state| state.id == task.state.id }
+      return states
+    end
+
   end 

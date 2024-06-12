@@ -4,11 +4,11 @@ import { FetchRequest } from "@rails/request.js";
 // Connects to data-controller="states"
 export default class extends Controller {
   connect() {
-    console.log("Hello, Stimulus!", this.element);
+    console.log("State connected");
   }
   async changeName(e) {
-    console.log(e.target.value);
-    console.log(this.element);
+    //console.log(e.target.value);
+    //console.log(this.element);
     const ids = this.element.querySelector("input").id.split("-"); //ids[0] = "board", ids[1] = "state"
     await this.changeNameRequest(ids[0], ids[1], e.target.value);
   }
@@ -33,7 +33,7 @@ export default class extends Controller {
     const response = await request.perform();
     if (response.ok) {
       const body = await response.text;
-      console.log(body);
+      //console.log(body);
     }
     /*const request = new FetchRequest("update", )
     fetch(`//boards/${ids[0]}/states/${ids[1]}/edit/index`, {

@@ -8492,11 +8492,9 @@ var FetchRequest2 = class {
 // app/javascript/controllers/states_controller.js
 var states_controller_default = class extends Controller {
   connect() {
-    console.log("Hello, Stimulus!", this.element);
+    console.log("State connected");
   }
   async changeName(e) {
-    console.log(e.target.value);
-    console.log(this.element);
     const ids = this.element.querySelector("input").id.split("-");
     await this.changeNameRequest(ids[0], ids[1], e.target.value);
   }
@@ -8518,7 +8516,42 @@ var states_controller_default = class extends Controller {
     const response = await request.perform();
     if (response.ok) {
       const body = await response.text;
-      console.log(body);
+    }
+  }
+};
+
+// app/javascript/controllers/task_controller.js
+var task_controller_default = class extends Controller {
+  connect() {
+  }
+  async handleClick(e) {
+    console.log(e.target.id);
+    const stateId = e.target.id.split("-")[1];
+    console.log(stateId);
+    const taskId = e.target.id.split("-").at(-1);
+    console.log(taskId);
+    await this.changeTaskStateRequest(taskId, stateId);
+  }
+  async changeTaskStateRequest(taskId, stateId) {
+    const request = new FetchRequest2(
+      "PATCH",
+      `http://127.0.0.1:3000/tasks/${taskId}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+        },
+        body: JSON.stringify({
+          task: { state_id: stateId }
+        }),
+        responseKind: "html"
+        //this is to tell the request that the response must be in json format
+      }
+    );
+    const response = await request.perform();
+    if (response.ok) {
+      const body = await response.text;
+      document.documentElement.innerHTML = body;
     }
   }
 };
@@ -8526,6 +8559,7 @@ var states_controller_default = class extends Controller {
 // app/javascript/controllers/index.js
 application.register("hello", hello_controller_default);
 application.register("states", states_controller_default);
+application.register("task", task_controller_default);
 
 // node_modules/@popperjs/core/lib/index.js
 var lib_exports = {};

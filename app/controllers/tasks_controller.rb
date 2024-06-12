@@ -37,11 +37,19 @@ class TasksController < ApplicationController
   end
 
   def update 
+    # MUST DO: add user verification, if not added, any user can change any task's state id
     @task = Task.find(params[:id])
     if @task.update(task_params)
       @state = State.find(@task.state_id)
-      @board = Board.find(@state.board_id)
-      redirect_to board_url(@board), notice: 'Task was successfully updated.'
+      @board = Board.find(@state.board_id) 
+      respond_to do |format|
+        #from https://api.rubyonrails.org/classes/ActionController/Redirecting.html#method-i-redirect_to
+        #If you are using XHR requests other than GET or POST and redirecting 
+        #request method. This may lead to undesirable behavior such as a double DELETE. 
+        #To work around this you can return a 303 See Other status code which will be followed using a GET request.
+        format.html { redirect_to board_url(@state.board_id), status: 303, notice: 'Task was successfully updated.' }
+        format.json { render json: @state, status: :created, location: @state }
+      end
     else
       render :edit
     end
@@ -53,7 +61,7 @@ class TasksController < ApplicationController
     @task.destroy
     respond_to do |format|
       @state = State.find(@task.state_id)
-        @board = Board.find(@state.board_id)
+      @board = Board.find(@state.board_id)
       format.html { redirect_to board_url(@board), notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
