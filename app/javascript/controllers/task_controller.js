@@ -19,7 +19,7 @@ export default class extends Controller {
     //also data-actions are taken from https://stimulus.hotwired.dev/reference/actions
     const request = new FetchRequest(
       "PATCH",
-      `http://0.0.0.0:8080/tasks/${taskId}`,
+      `https://stingray-app-nuu7m.ondigitalocean.app/tasks/${taskId}`,
       {
         headers: {
           "Content-Type": "application/json",
