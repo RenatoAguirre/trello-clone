@@ -17,7 +17,7 @@ export default class extends Controller {
     //also data-actions are taken from https://stimulus.hotwired.dev/reference/actions
     const request = new FetchRequest(
       "PATCH",
-      `http://127.0.0.1:3000/states/${stateId}`,
+      `http://0.0.0.0:8080/states/${stateId}`,
       {
         headers: {
           "Content-Type": "application/json",
